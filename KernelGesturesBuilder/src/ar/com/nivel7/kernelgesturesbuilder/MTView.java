@@ -59,8 +59,11 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 		if (c != null) {
 			c.drawColor(Color.BLACK);
 			if (event.getAction() == MotionEvent.ACTION_UP) {
-				// clear everything
+				// draw grid
+				drawGrid (c);
 			} else {
+				// draw grid
+				drawGrid (c);
 				// draw crosshairs first then circles as a second pass
 				for (int i = 0; i < pointerCount; i++) {
 					int id = event.getPointerId(i);
@@ -80,6 +83,16 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 		return true;
 	}
 
+	private void drawGrid (Canvas c) {
+		c.drawLine(0, height/5, width, height/5, touchPaints[3]);
+		c.drawLine(0, (height/5)*2, width, (height/5)*2, touchPaints[3]);
+		c.drawLine(0, (height/5)*3, width, (height/5)*3, touchPaints[3]);
+		c.drawLine(0, (height/5)*4, width, (height/5)*4, touchPaints[3]);
+		c.drawLine(width/3, 0, width/3, height, touchPaints[7]);
+		c.drawLine((width/3)*2, 0, (width/3)*2, height, touchPaints[7]);
+		
+	}
+
 	private void drawCrosshairsAndText(int x, int y, Paint paint, int ptr,
 			int id, Canvas c) {
 		c.drawLine(0, y, width, y, paint);
@@ -91,7 +104,7 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 	}
 
 	private void drawCircle(int x, int y, Paint paint, Canvas c) {
-		c.drawCircle(x, y, 40 * scale, paint);
+		c.drawCircle(x, y, 30 * scale, paint);
 	}
 
 	public void surfaceChanged(SurfaceHolder holder, int format, int width,
@@ -108,6 +121,8 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 		if (c != null) {
 			// clear screen
 			c.drawColor(Color.BLACK);
+			// draw grid
+			drawGrid (c);
 			float tWidth = textPaint.measureText(START_TEXT);
 			c.drawText(START_TEXT, width / 2 - tWidth / 2, height / 2,
 					textPaint);
