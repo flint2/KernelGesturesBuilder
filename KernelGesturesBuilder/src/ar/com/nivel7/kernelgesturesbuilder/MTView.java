@@ -9,6 +9,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 public class MTView extends SurfaceView implements SurfaceHolder.Callback {
+
 	private static final String TAG = "KernelGesturesBuilder";
 
 	private static final int MAX_TOUCHPOINTS = 10;
@@ -18,11 +19,21 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 	private Paint touchPaints[] = new Paint[MAX_TOUCHPOINTS];
 	private int colors[] = new int[MAX_TOUCHPOINTS];
 	
+	private int gridcolumns; 
+	public void setGridcolumns(int gridcolumns) {
+		this.gridcolumns = gridcolumns;
+	}
 
+	private int gridrows;
+	public void setGridrows(int gridrows) {
+		this.gridrows = gridrows;
+	}
+	
 	private int width, height;
 	private float scale = 1.0f;
 
-	public MTView(Context context) {
+	
+	public MTView(Context context ) {
 		super(context);
 		SurfaceHolder holder = getHolder();
 		holder.addCallback(this);
@@ -47,6 +58,7 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 			touchPaints[i] = new Paint();
 			touchPaints[i].setColor(colors[i]);
 		}
+				
 	}
 
 	@Override
@@ -84,12 +96,16 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 	}
 
 	private void drawGrid (Canvas c) {
-		c.drawLine(0, height/5, width, height/5, touchPaints[3]);
-		c.drawLine(0, (height/5)*2, width, (height/5)*2, touchPaints[3]);
-		c.drawLine(0, (height/5)*3, width, (height/5)*3, touchPaints[3]);
-		c.drawLine(0, (height/5)*4, width, (height/5)*4, touchPaints[3]);
-		c.drawLine(width/3, 0, width/3, height, touchPaints[7]);
-		c.drawLine((width/3)*2, 0, (width/3)*2, height, touchPaints[7]);
+		for (int i = 1; i < gridrows; i++) {
+			c.drawLine(0, (height/gridrows)*i, 
+					   width, (height/gridrows)*i, 
+					   touchPaints[3]);
+		}
+		for (int i = 1; i < gridcolumns; i++) {
+			c.drawLine((width/gridcolumns)*i, 0, 
+					   (width/gridcolumns)*i, height, 
+					   touchPaints[3]);
+		}
 		
 	}
 
@@ -124,7 +140,7 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 			// draw grid
 			drawGrid (c);
 			float tWidth = textPaint.measureText(START_TEXT);
-			c.drawText(START_TEXT, width / 2 - tWidth / 2, height / 2,
+			c.drawText(START_TEXT, width / 2 - tWidth / 2, height / 2 - 10,
 					textPaint);
 			getHolder().unlockCanvasAndPost(c);
 		}
