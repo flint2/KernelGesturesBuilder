@@ -30,6 +30,7 @@ public class KernelGesturesBuilder extends Activity {
 		KernelGesturesMTView.setGridrows(Integer.parseInt(sharedPrefs.getString("grid_rows", "5")));
 		setContentView(KernelGesturesMTView);
 		
+		
 	}
 
 	
@@ -45,7 +46,7 @@ public class KernelGesturesBuilder extends Activity {
 	        {
 	 	    case R.id.menu_settings:
 	        	startActivity(new Intent(this, Settings.class ));
-	            return true;
+	        	return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
 	        }
