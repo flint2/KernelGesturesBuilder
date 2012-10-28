@@ -79,7 +79,7 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 					int id = event.getPointerId(i);
 					int x = (int) event.getX(i);
 					int y = (int) event.getY(i);
-					drawCrosshairsAndText(x, y, touchPaints[id], i, id, c);
+					drawCrosshairsAndText(x, y, touchPaints[id], i, c);
 				}
 				for (int i = 0; i < pointerCount; i++) {
 					int id = event.getPointerId(i);
@@ -118,13 +118,21 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 	}
 
 	private void drawCrosshairsAndText(int x, int y, Paint paint, int ptr,
-			int id, Canvas c) {
+			 Canvas c) {
 		c.drawLine(0, y, width, y, paint);
 		c.drawLine(x, 0, x, height, paint);
+		
+		// Syntax
+		//   <gesture_no>:<finger_no>:(x_min|x_max,y_min|y_max)
+		
 		int textY = (int) ((15 + 20 * ptr) * scale);
-		c.drawText("x" + ptr + "=" + x, 10 * scale, textY, textPaint);
-		c.drawText("y" + ptr + "=" + y, 70 * scale, textY, textPaint);
-		c.drawText("id" + ptr + "=" + id, width - 55 * scale, textY, textPaint);
+		c.drawText(
+				"1" + ":" + 
+		         ptr + ":" + 
+				"(" +  width / (x+1) * gridcolumns + "|" + 0 + 
+				"," + height / (y+1) * gridrows + "|" + 0 + ")" 
+				, 10 * scale, textY, textPaint);
+		
 	}
 
 	private void drawCircle(int x, int y, Paint paint, Canvas c) {
