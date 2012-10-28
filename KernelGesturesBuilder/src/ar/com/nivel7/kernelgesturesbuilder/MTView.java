@@ -1,3 +1,14 @@
+/*
+ * Portions of this code by Robert Green's Multitouch Visible Test
+ * 
+ * Play Store link to app
+ * https://play.google.com/store/apps/details?id=com.batterypoweredgames.mtvistest 
+ * 
+ * Source code
+ * http://www.rbgrn.net/content/367-source-code-to-multitouch-visible-test
+ *  
+ */
+
 package ar.com.nivel7.kernelgesturesbuilder;
 
 import android.content.Context;
@@ -126,11 +137,15 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 		//   <gesture_no>:<finger_no>:(x_min|x_max,y_min|y_max)
 		
 		int textY = (int) ((15 + 20 * ptr) * scale);
+		int x_min = (x/(width/gridcolumns)  )*(width/gridcolumns);
+		int x_max = (x/(width/gridcolumns)+1)*(width/gridcolumns);
+		int y_min = (y/(height/gridrows)  )*(height/gridrows);
+		int y_max = (y/(height/gridrows)+1)*(height/gridrows);
 		c.drawText(
 				"1" + ":" + 
-		         ptr + ":" + 
-				"(" +  width / (x+1) * gridcolumns + "|" + 0 + 
-				"," + height / (y+1) * gridrows + "|" + 0 + ")" 
+		         ptr+1 + ":" + 
+				"(" +  x_min + "|" + x_max + 
+				"," + y_min + "|" + y_max + ")" 
 				, 10 * scale, textY, textPaint);
 		
 	}
