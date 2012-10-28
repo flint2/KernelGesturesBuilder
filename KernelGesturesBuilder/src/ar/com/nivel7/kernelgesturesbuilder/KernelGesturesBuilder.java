@@ -33,6 +33,13 @@ public class KernelGesturesBuilder extends Activity {
 		
 	}
 
+	@Override
+	public void onNewIntent(Intent intent) {
+		KernelGesturesMTView.setGridcolumns(Integer.parseInt(sharedPrefs.getString("grid_columns", "3")));
+		KernelGesturesMTView.setGridrows(Integer.parseInt(sharedPrefs.getString("grid_rows", "5")));
+		setContentView(KernelGesturesMTView);
+		KernelGesturesMTView.redrawGrid();
+	}
 	
 	  @Override public boolean onCreateOptionsMenu(Menu menu) {
 	  getMenuInflater().inflate(R.menu.activity_kernel_gestures_builder, menu);

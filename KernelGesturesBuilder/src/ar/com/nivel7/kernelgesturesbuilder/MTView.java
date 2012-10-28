@@ -13,7 +13,7 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 	private static final String TAG = "KernelGesturesBuilder";
 
 	private static final int MAX_TOUCHPOINTS = 10;
-	private static final String START_TEXT = "Touch Anywhere To Test";
+	private static final String START_TEXT = "Touch Anywhere To Begin";
 
 	private Paint textPaint = new Paint();
 	private Paint touchPaints[] = new Paint[MAX_TOUCHPOINTS];
@@ -69,13 +69,11 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 		}
 		Canvas c = getHolder().lockCanvas();
 		if (c != null) {
+			// Clear screen
 			c.drawColor(Color.BLACK);
-			if (event.getAction() == MotionEvent.ACTION_UP) {
-				// draw grid
-				drawGrid (c);
-			} else {
-				// draw grid
-				drawGrid (c);
+			// draw grid
+			drawGrid (c);
+			if (event.getAction() != MotionEvent.ACTION_UP) {
 				// draw crosshairs first then circles as a second pass
 				for (int i = 0; i < pointerCount; i++) {
 					int id = event.getPointerId(i);
@@ -95,6 +93,16 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 		return true;
 	}
 
+	public void redrawGrid () {
+		Canvas c = getHolder().lockCanvas();
+		if (c != null) {
+			// Clear screen
+			c.drawColor(Color.BLACK);
+			// draw grid
+			drawGrid (c);
+		}
+	}
+	
 	private void drawGrid (Canvas c) {
 		for (int i = 1; i < gridrows; i++) {
 			c.drawLine(0, (height/gridrows)*i, 

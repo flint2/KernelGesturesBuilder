@@ -2,7 +2,7 @@
     package="ar.com.nivel7.kernelgesturesbuilder"
     android:installLocation="auto"
     android:versionCode="1"
-    android:versionName="1.1" >
+    android:versionName="1.2" >
 
     <uses-sdk
         android:minSdkVersion="11"
@@ -14,7 +14,8 @@
         android:theme="@android:style/Theme.Holo" >
         <activity
             android:name=".KernelGesturesBuilder"
-            android:label="@string/title_activity_kernel_gestures_builder" >
+            android:label="@string/title_activity_kernel_gestures_builder" 
+            android:launchMode="singleTask" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
