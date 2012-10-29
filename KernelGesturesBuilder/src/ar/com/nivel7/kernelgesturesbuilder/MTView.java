@@ -39,6 +39,7 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 	private static final String TAG = "KernelGesturesBuilder";
 
 	private static final int MAX_TOUCHPOINTS = 10;
+	private static final int MAX_HOTSPOTS = 10;
 	private static final String START_TEXT = "Touch Anywhere To Begin";
 
 	private Paint textPaint = new Paint();
@@ -58,6 +59,14 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 	private int width, height;
 	private float scale = 1.0f;
 
+	private int arr_xmin[] = new int [MAX_HOTSPOTS];
+	private int arr_xmax[] = new int [MAX_HOTSPOTS];
+	private int arr_ymin[] = new int [MAX_HOTSPOTS];
+	private int arr_ymax[] = new int [MAX_HOTSPOTS];
+	
+	private String gestures[] = new String[MAX_TOUCHPOINTS];
+	
+	// <gesture_no>:<finger_no>:(x_min|x_max,y_min|y_max)
 	
 	public MTView(Context context ) {
 		super(context);
@@ -84,7 +93,12 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 			touchPaints[i] = new Paint();
 			touchPaints[i].setColor(colors[i]);
 		}
-				
+		for (int i = 0; i < MAX_HOTSPOTS; i++) {
+			arr_xmin[i] = -1;
+			arr_xmax[i] = -1;
+			arr_ymin[i] = -1;
+			arr_ymax[i] = -1;
+		}
 	}
 
 	@Override
@@ -156,6 +170,8 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 		int x_max = (x/(width/gridcolumns)+1)*(width/gridcolumns);
 		int y_min = (y/(height/gridrows)  )*(height/gridrows);
 		int y_max = (y/(height/gridrows)+1)*(height/gridrows);
+		
+				
 		c.drawText(
 				"1" + ":" + 
 		         ptr+1 + ":" + 
