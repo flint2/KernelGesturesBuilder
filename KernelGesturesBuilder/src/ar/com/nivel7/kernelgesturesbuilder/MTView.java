@@ -174,7 +174,7 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 				
 		c.drawText(
 				"1" + ":" + 
-		         ptr+1 + ":" + 
+		         (ptr+1) + ":" + 
 				"(" +  x_min + "|" + x_max + 
 				"," + y_min + "|" + y_max + ")" 
 				, 10 * scale, textY, textPaint);
