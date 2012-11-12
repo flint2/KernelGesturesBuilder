@@ -26,6 +26,9 @@
 
 package ar.com.nivel7.kernelgesturesbuilder;
 
+
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -33,6 +36,7 @@ import android.graphics.Paint;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.widget.Toast;
 
 public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 
@@ -59,17 +63,16 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 	private int width, height;
 	private float scale = 1.0f;
 
-	private int arr_xmin[] = new int [MAX_HOTSPOTS];
-	private int arr_xmax[] = new int [MAX_HOTSPOTS];
-	private int arr_ymin[] = new int [MAX_HOTSPOTS];
-	private int arr_ymax[] = new int [MAX_HOTSPOTS];
+	private int gestureSize[] = new int [MAX_TOUCHPOINTS];
+	private String gestures[][] = new String[MAX_TOUCHPOINTS][MAX_HOTSPOTS];
 	
-	private String gestures[] = new String[MAX_TOUCHPOINTS];
+	private Context myContext = null;
 	
 	// <gesture_no>:<finger_no>:(x_min|x_max,y_min|y_max)
 	
 	public MTView(Context context ) {
 		super(context);
+		this.myContext = context;
 		SurfaceHolder holder = getHolder();
 		holder.addCallback(this);
 		setFocusable(true); // make sure we get key events
@@ -92,12 +95,7 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 		for (int i = 0; i < MAX_TOUCHPOINTS; i++) {
 			touchPaints[i] = new Paint();
 			touchPaints[i].setColor(colors[i]);
-		}
-		for (int i = 0; i < MAX_HOTSPOTS; i++) {
-			arr_xmin[i] = -1;
-			arr_xmax[i] = -1;
-			arr_ymin[i] = -1;
-			arr_ymax[i] = -1;
+			gestureSize[i] = 0;
 		}
 	}
 
@@ -127,6 +125,33 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 					int y = (int) event.getY(i);
 					drawCircle(x, y, touchPaints[id], c);
 				}
+			} else {
+				int textY = 1;
+				CharSequence toClipboard = "";
+				for (int i = 0; i < MAX_TOUCHPOINTS; i++) {
+					for ( int j=0 ; j<gestureSize[i] ; j++ ) {
+						c.drawText(
+								"1" + ":" + (i+1) + ":" + 
+						         gestures[i][j] 
+								, 10 * scale
+								, 20 * textY * scale
+								, textPaint);
+						textY++;
+						toClipboard=toClipboard+ 
+								 "1" + ":" + (i+1) + ":" + 
+						         gestures[i][j]+ "\n" ;
+					}
+					gestureSize[i] = 0;
+				}
+				
+				ClipboardManager clipboard = (ClipboardManager)
+						myContext.getSystemService(Context.CLIPBOARD_SERVICE);
+				ClipData clip = ClipData.newPlainText("Gesture",toClipboard);
+				clipboard.setPrimaryClip(clip);
+
+				CharSequence toastText = "Gesture Copied to Clipboard";
+				Toast.makeText(myContext, toastText, Toast.LENGTH_SHORT).show();
+							    
 			}
 			getHolder().unlockCanvasAndPost(c);
 		}
@@ -162,22 +187,29 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 		c.drawLine(0, y, width, y, paint);
 		c.drawLine(x, 0, x, height, paint);
 		
+		String currentHotspot;
+		
 		// Syntax
 		//   <gesture_no>:<finger_no>:(x_min|x_max,y_min|y_max)
 		
-		int textY = (int) ((15 + 20 * ptr) * scale);
 		int x_min = (x/(width/gridcolumns)  )*(width/gridcolumns);
 		int x_max = (x/(width/gridcolumns)+1)*(width/gridcolumns);
 		int y_min = (y/(height/gridrows)  )*(height/gridrows);
 		int y_max = (y/(height/gridrows)+1)*(height/gridrows);
 		
-				
-		c.drawText(
-				"1" + ":" + 
-		         (ptr+1) + ":" + 
-				"(" +  x_min + "|" + x_max + 
-				"," + y_min + "|" + y_max + ")" 
-				, 10 * scale, textY, textPaint);
+		currentHotspot = "(" +  x_min + "|" + x_max + 
+				"," + y_min + "|" + y_max + ")" ;
+		
+		if ( gestureSize[ptr]==0 ) {
+			gestures[ptr][gestureSize[ptr]] = currentHotspot;
+			gestureSize[ptr]++;
+		} else {
+			if ( !gestures[ptr][gestureSize[ptr]-1].equals(currentHotspot)   
+					 && gestureSize[ptr]<MAX_HOTSPOTS-1 ) {
+				gestures[ptr][gestureSize[ptr]] = currentHotspot;
+				gestureSize[ptr]++;
+			}
+		}
 		
 	}
 
