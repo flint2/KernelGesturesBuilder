@@ -50,6 +50,10 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 	private Paint touchPaints[] = new Paint[MAX_TOUCHPOINTS];
 	private int colors[] = new int[MAX_TOUCHPOINTS];
 	
+	private int gesturenumber;
+	public void setGesturenumber(int gesturenumber) {
+		this.gesturenumber = gesturenumber;
+	}
 	private int gridcolumns; 
 	public void setGridcolumns(int gridcolumns) {
 		this.gridcolumns = gridcolumns;
@@ -131,14 +135,14 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 				for (int i = 0; i < MAX_TOUCHPOINTS; i++) {
 					for ( int j=0 ; j<gestureSize[i] ; j++ ) {
 						c.drawText(
-								"1" + ":" + (i+1) + ":" + 
+								gesturenumber + ":" + (i+1) + ":" + 
 						         gestures[i][j] 
 								, 10 * scale
 								, 20 * textY * scale
 								, textPaint);
 						textY++;
 						toClipboard=toClipboard+ 
-								 "1" + ":" + (i+1) + ":" + 
+								"" + gesturenumber + ":" + (i+1) + ":" + 
 						         gestures[i][j]+ "\n" ;
 					}
 					gestureSize[i] = 0;

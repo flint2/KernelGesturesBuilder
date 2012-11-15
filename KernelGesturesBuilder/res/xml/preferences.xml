@@ -2,6 +2,21 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <PreferenceCategory 
+        android:title="Gestures"
+        android:key="gesture_number">
+
+        <ListPreference 
+            android:key="gesture_number"
+            android:title="Gesture number"
+            android:summary="Define gesture number (Id)"
+            android:defaultValue="1" 
+            android:entries="@array/gestureNumber"
+            android:entryValues="@array/gestureNumberValues"
+        />    
+        
+    </PreferenceCategory>
+    
+    <PreferenceCategory 
         android:title="Grid Layout"
         android:key="grid_layout">
     

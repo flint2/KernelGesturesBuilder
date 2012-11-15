@@ -49,6 +49,7 @@ public class KernelGesturesBuilder extends Activity {
 		
 		sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 		KernelGesturesMTView = new MTView(this);
+		KernelGesturesMTView.setGesturenumber(Integer.parseInt(sharedPrefs.getString("gesture_number", "1")));
 		KernelGesturesMTView.setGridcolumns(Integer.parseInt(sharedPrefs.getString("grid_columns", "3")));
 		KernelGesturesMTView.setGridrows(Integer.parseInt(sharedPrefs.getString("grid_rows", "5")));
 		setContentView(KernelGesturesMTView);
@@ -58,6 +59,7 @@ public class KernelGesturesBuilder extends Activity {
 
 	@Override
 	public void onNewIntent(Intent intent) {
+		KernelGesturesMTView.setGesturenumber(Integer.parseInt(sharedPrefs.getString("gesture_number", "1")));
 		KernelGesturesMTView.setGridcolumns(Integer.parseInt(sharedPrefs.getString("grid_columns", "3")));
 		KernelGesturesMTView.setGridrows(Integer.parseInt(sharedPrefs.getString("grid_rows", "5")));
 		setContentView(KernelGesturesMTView);
