@@ -27,6 +27,10 @@
 package ar.com.nivel7.kernelgesturesbuilder;
 
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -155,7 +159,24 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 
 				CharSequence toastText = "Gesture Copied to Clipboard";
 				Toast.makeText(myContext, toastText, Toast.LENGTH_SHORT).show();
-							    
+
+				String FILENAME = "gesture-"+gesturenumber+".config";
+
+				FileOutputStream fos;
+				try {
+					fos = myContext.openFileOutput(FILENAME, Context.MODE_PRIVATE);
+					fos.write(toClipboard.toString().getBytes());
+					fos.close();
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
+				toastText = "Gesture Saved to File "+ FILENAME;
+				Toast.makeText(myContext, toastText, Toast.LENGTH_SHORT).show();
+
+				
 			}
 			getHolder().unlockCanvasAndPost(c);
 		}
