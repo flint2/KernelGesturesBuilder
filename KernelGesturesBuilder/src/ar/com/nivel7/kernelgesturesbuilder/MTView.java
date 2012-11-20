@@ -139,14 +139,14 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 				for (int i = 0; i < MAX_TOUCHPOINTS; i++) {
 					for ( int j=0 ; j<gestureSize[i] ; j++ ) {
 						c.drawText(
-								gesturenumber + ":" + (i+1) + ":" + 
+								gesturenumber + ":" + (j+1) + ":" + 
 						         gestures[i][j] 
 								, 10 * scale
 								, 20 * textY * scale
 								, textPaint);
 						textY++;
 						toClipboard=toClipboard+ 
-								"" + gesturenumber + ":" + (i+1) + ":" + 
+								"" + gesturenumber + ":" + (j+1) + ":" + 
 						         gestures[i][j]+ "\n" ;
 					}
 					gestureSize[i] = 0;
@@ -230,7 +230,7 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 			gestureSize[ptr]++;
 		} else {
 			if ( !gestures[ptr][gestureSize[ptr]-1].equals(currentHotspot)   
-					 && gestureSize[ptr]<MAX_HOTSPOTS-1 ) {
+					 && gestureSize[ptr]<MAX_HOTSPOTS ) {
 				gestures[ptr][gestureSize[ptr]] = currentHotspot;
 				gestureSize[ptr]++;
 			}
