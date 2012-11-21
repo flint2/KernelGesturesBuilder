@@ -27,10 +27,10 @@
 package ar.com.nivel7.kernelgesturesbuilder;
 
 
+import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -105,6 +105,18 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 			touchPaints[i].setColor(colors[i]);
 			gestureSize[i] = 0;
 		}
+     	if (Utils.canRunRootCommandsInThread())
+     	{
+			CharSequence toastText = "Kernel Gestures Builder Root OK :-)";
+			Toast.makeText(myContext, toastText, Toast.LENGTH_SHORT).show();
+     	}
+     	else
+     	{
+			CharSequence toastText = "Kernel Gestures Builder No Root :-(";
+			Toast.makeText(myContext, toastText, Toast.LENGTH_SHORT).show();
+     		Utils.reset();
+     	}
+
 	}
 
 	@Override
