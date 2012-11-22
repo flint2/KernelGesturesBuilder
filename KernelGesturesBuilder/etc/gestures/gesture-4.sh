@@ -4,4 +4,4 @@
 	# WARNING / BONUS: This will work even in the lockscreen with a PIN protection
 	# When you ready to add some phone, remove the # before service call...
 
-	service call phone 2 s16 "0000000000"
+	# service call phone 2 s16 "your girl number"
