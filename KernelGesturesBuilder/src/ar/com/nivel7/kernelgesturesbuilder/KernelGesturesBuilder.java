@@ -163,14 +163,19 @@ public class KernelGesturesBuilder extends Activity {
       					"if [ -f /data/gesture_set.sh ]; then\n" +
       					"   cat /data/gestures/gesture_set.sh > /data/gesture_set.sh\n" +
       					"   chmod 755 /data/gesture_set.sh\n" +
+      					"   if [ -f /system/etc/init.d/S50GestureActions ]; then\n" +
+      					"      mount -o remount,rw /system\n" +
+      					"      cat /data/gestures/gesture_set.sh > /system/etc/init.d/S50GestureActions\n" +
+      					"      chmod 755 /system/etc/init.d/S50GestureActions\n" +
+      					"   fi\n" +
       					"fi\n" +
       					"if [ -f /system/etc/init.d/S50GestureActions ]; then\n" +
       					"   mount -o remount,rw /system\n" +
       					"   cat /data/gestures/gesture_set.sh > /system/etc/init.d/S50GestureActions\n" +
       					"   chmod 755 /system/etc/init.d/S50GestureActions\n" +
       					"fi\n" +
-      					"   rm /data/gestures/gesture_set.sh \n" +
-      					"   rm /data/gestures/install_gestures.sh \n" +
+      					"rm /data/gestures/gesture_set.sh \n" +
+      					"rm /data/gestures/install_gestures.sh \n" +
       					"\n").getBytes());
       			fos.close();
       		} catch (FileNotFoundException e) {
@@ -395,7 +400,7 @@ public class KernelGesturesBuilder extends Activity {
  		FILENAME = "gesture-3.sh";
  		try {
  			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
- 			fos.write(("am start -a android.intent.action.MAIN -n com.darekxan.extweaks.app/.ExTweaksActivity\n").getBytes());
+ 			fos.write(("am start -a android.intent.action.MAIN -n com.gokhanmoral.stweaks.app/.MainActivity;").getBytes());
  			fos.close();
  		} catch (FileNotFoundException e) {
  			e.printStackTrace();
