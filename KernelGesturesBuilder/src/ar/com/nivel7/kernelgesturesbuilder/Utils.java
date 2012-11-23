@@ -16,7 +16,7 @@ import android.util.Log;
 
 public class Utils {
 	private static String LOG_TAG = "KernelGesturesBuilder";
-	private static String scriptSeparator = "[%nkernelgesturesbuilder%]";
+	private static String scriptSeparator = "kernelgesturesbuilderendscript";
 
 	private static Process rootProcess = null;
 	private static BufferedWriter consoleIn = null;

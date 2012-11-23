@@ -45,7 +45,7 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 
 	private static final String TAG = "KernelGesturesBuilder";
 
-	private static final int MAX_TOUCHPOINTS = 10;
+	private static final int MAX_TOUCHPOINTS = 5;
 	private static final int MAX_HOTSPOTS = 10;
 	private static final String START_TEXT = "Touch Anywhere To Begin";
 
@@ -94,11 +94,6 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 		colors[2] = Color.GREEN;
 		colors[3] = Color.YELLOW;
 		colors[4] = Color.CYAN;
-		colors[5] = Color.MAGENTA;
-		colors[6] = Color.DKGRAY;
-		colors[7] = Color.WHITE;
-		colors[8] = Color.LTGRAY;
-		colors[9] = Color.GRAY;
 		for (int i = 0; i < MAX_TOUCHPOINTS; i++) {
 			touchPaints[i] = new Paint();
 			touchPaints[i].setColor(colors[i]);
@@ -108,7 +103,6 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
      	{
 			CharSequence toastText = "Kernel Gestures Builder No Root :-(";
 			Toast.makeText(myContext, toastText, Toast.LENGTH_SHORT).show();
-     		Utils.reset();
      	}
 
 	}
@@ -145,14 +139,14 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 				for (int i = 0; i < MAX_TOUCHPOINTS; i++) {
 					for ( int j=0 ; j<gestureSize[i] ; j++ ) {
 						c.drawText(
-								gesturenumber + ":" + (j+1) + ":" + 
+								gesturenumber + ":" + (i+1) + ":" + 
 						         gestures[i][j] 
 								, 10 * scale
 								, 20 * textY * scale
 								, textPaint);
 						textY++;
 						toClipboard=toClipboard+ 
-								"" + gesturenumber + ":" + (j+1) + ":" + 
+								"" + gesturenumber + ":" + (i+1) + ":" + 
 						         gestures[i][j]+ "\n" ;
 					}
 					gestureSize[i] = 0;

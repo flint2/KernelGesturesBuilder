@@ -154,7 +154,9 @@ public class KernelGesturesBuilder extends Activity {
       		try {
       			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
       			fos.write(("#!/sbin/busybox sh\n" +
-      					"mkdir /data/gestures\n" +
+      					"if [ ! -d /data/gestures ]; then\n" +
+      					"   mkdir /data/gestures\n" +
+      					"fi\n" +
       					"cp /data/data/ar.com.nivel7.kernelgesturesbuilder/files/* /data/gestures\n" +
       					"chmod 755 /data/gestures/*.sh\n" +
       					"chmod 644 /data/gestures/*.config\n" +
@@ -177,13 +179,19 @@ public class KernelGesturesBuilder extends Activity {
       			e.printStackTrace();
       		}
 
-      		/*
-    		String response = Utils.executeRootCommandInThread("chmod 755 /data/data/ar.com.nivel7.kernelgesturesbuilder/files/install_gestures.sh");
-    		response = Utils.executeRootCommandInThread("/data/data/ar.com.nivel7.kernelgesturesbuilder/files/install_gestures.sh");
-      		 */
+      		CharSequence toastText;
+      		if (Utils.canRunRootCommandsInThread()) {
+      			String response = Utils.executeRootCommandInThread
+    			("chmod 755 /data/data/ar.com.nivel7.kernelgesturesbuilder/files/install_gestures.sh\n" +
+    			 "/data/data/ar.com.nivel7.kernelgesturesbuilder/files/install_gestures.sh");
+      			toastText = "Install Gestures OK: "+response;
+      			Toast.makeText(this , toastText , Toast.LENGTH_SHORT).show();
+      		} else {
+      			toastText = "Error: NO Root?";
+      			Toast.makeText(this , toastText, Toast.LENGTH_SHORT).show();
+     			
+      		}
       		
-    		CharSequence toastText = "Install Gestures OK";
-     		Toast.makeText(this , toastText, Toast.LENGTH_SHORT).show();
      
     	  return true;
       }
