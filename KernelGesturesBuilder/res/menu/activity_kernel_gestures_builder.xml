@@ -4,16 +4,20 @@
         android:title="@string/menu_installgestures"
         android:orderInCategory="100"
         android:titleCondensed="@string/menu_installgestures"/>
+    <item android:id="@+id/menu_loadgestures"
+        android:title="@string/menu_loadgestures"
+        android:orderInCategory="200"
+        android:titleCondensed="@string/menu_loadgestures"/>
     <item android:id="@+id/menu_resetgestures"
         android:title="@string/menu_resetgestures"
-        android:orderInCategory="200"
+        android:orderInCategory="300"
         android:titleCondensed="@string/menu_resetgestures"/>
     <item android:id="@+id/menu_resetactions"
         android:title="@string/menu_resetactions"
-        android:orderInCategory="300"
+        android:orderInCategory="400"
         android:titleCondensed="@string/menu_resetactions"/>
     <item android:id="@+id/menu_settings"
         android:title="@string/menu_settings"
-        android:orderInCategory="400"
+        android:orderInCategory="500"
         android:titleCondensed="@string/menu_settings"/>
 </menu>
