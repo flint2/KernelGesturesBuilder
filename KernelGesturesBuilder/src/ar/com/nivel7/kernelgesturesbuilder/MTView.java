@@ -254,14 +254,14 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 		String y[];
 		// Syntax
 		//  (x_min|x_max,y_min|y_max)
-		gesture_split = gesture.split(",");
-		x = gesture_split[0].split("|");
-		y = gesture_split[0].split("|");
+		gesture_split = gesture.substring(1, gesture.length()-1).split(",");
+		x = gesture_split[0].split("\\|");
+		y = gesture_split[1].split("\\|");
 		
-		left= Integer.parseInt(x[0].toString());
-		top=Integer.parseInt(y[0].toString());
-		right=Integer.parseInt(x[1].toString());
-		bottom=Integer.parseInt(y[1].toString());
+		left= Integer.parseInt(x[0].toString())+3;
+		top=Integer.parseInt(y[0].toString())+3;
+		right=Integer.parseInt(x[1].toString())-2;
+		bottom=Integer.parseInt(y[1].toString())-2;
 
 		c.drawRect(left, top, right, bottom, paint);
 	}
