@@ -2,6 +2,7 @@
 
     <string name="app_name">KernelGesturesBuilder</string>
     <string name="menu_installgestures">Install Gestures</string>
+    <string name="menu_loadgestures">Load Gestures</string>
     <string name="menu_resetgestures">Reset Gestures</string>
     <string name="menu_resetactions">Reset Actions</string>
     <string name="menu_settings">Settings</string>

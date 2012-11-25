@@ -90,6 +90,9 @@ public class KernelGesturesBuilder extends Activity {
 	 	    case R.id.menu_resetactions:
 	        	ResetActions();
 	        	return true;
+	 	    case R.id.menu_loadgestures:
+	        	LoadGestures();
+	        	return true;
 	 	    case R.id.menu_installgestures:
 	        	InstallGestures();
 	        	return true;
@@ -189,7 +192,7 @@ public class KernelGesturesBuilder extends Activity {
       			String response = Utils.executeRootCommandInThread
     			("chmod 755 /data/data/ar.com.nivel7.kernelgesturesbuilder/files/install_gestures.sh\n" +
     			 "/data/data/ar.com.nivel7.kernelgesturesbuilder/files/install_gestures.sh");
-      			toastText = "Install Gestures OK: "+response;
+      			toastText = "Install Gestures OK";
       			Toast.makeText(this , toastText , Toast.LENGTH_SHORT).show();
       		} else {
       			toastText = "Error: NO Root?";
@@ -201,7 +204,25 @@ public class KernelGesturesBuilder extends Activity {
     	  return true;
       }
       
+      public boolean LoadGestures() {
+  
+      		CharSequence toastText;
+      		if (Utils.canRunRootCommandsInThread()) {
+      			String response = Utils.executeRootCommandInThread
+    			("cp /data/gestures/* /data/data/ar.com.nivel7.kernelgesturesbuilder/files \n");
+      			toastText = "Load Gestures OK";
+      			Toast.makeText(this , toastText , Toast.LENGTH_SHORT).show();
+      		} else {
+      			toastText = "Error: NO Root?";
+      			Toast.makeText(this , toastText, Toast.LENGTH_SHORT).show();
+     			
+      		}
+      		
+     
+    	  return true;
+      }
       
+     
      public boolean ResetGestures() {
   		
   		String FILENAME = "gesture-1.config";

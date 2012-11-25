@@ -145,6 +145,7 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 								, 20 * textY * scale
 								, textPaint);
 						textY++;
+						drawRectangle(gestures[i][j], touchPaints[i], c);
 						toClipboard=toClipboard+ 
 								"" + gesturenumber + ":" + (i+1) + ":" + 
 						         gestures[i][j]+ "\n" ;
@@ -240,6 +241,29 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 
 	private void drawCircle(int x, int y, Paint paint, Canvas c) {
 		c.drawCircle(x, y, 30 * scale, paint);
+	}
+
+	private void drawRectangle(String gesture, Paint paint, Canvas c) {
+		int left=0;
+		int top=0;
+		int right=0;
+		int bottom=0;
+		
+		String gesture_split[];
+		String x[];
+		String y[];
+		// Syntax
+		//  (x_min|x_max,y_min|y_max)
+		gesture_split = gesture.split(",");
+		x = gesture_split[0].split("|");
+		y = gesture_split[0].split("|");
+		
+		left= Integer.parseInt(x[0].toString());
+		top=Integer.parseInt(y[0].toString());
+		right=Integer.parseInt(x[1].toString());
+		bottom=Integer.parseInt(y[1].toString());
+
+		c.drawRect(left, top, right, bottom, paint);
 	}
 
 	public void surfaceChanged(SurfaceHolder holder, int format, int width,
