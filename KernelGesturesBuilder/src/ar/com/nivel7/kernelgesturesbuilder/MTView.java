@@ -47,7 +47,9 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 
 	private static final int MAX_TOUCHPOINTS = 5;
 	private static final int MAX_HOTSPOTS = 10;
-	private static final String START_TEXT = "Touch Anywhere To Begin";
+	private static final int HOTSPOT_THRESHOLD = 12;
+	private static final boolean DRAW_HOTSPOT_THRESHOLD = false; 
+	private static final String START_TEXT = "Touch Anywhere To Build Gesture ";
 
 	private Paint textPaint = new Paint();
 	private Paint touchPaints[] = new Paint[MAX_TOUCHPOINTS];
@@ -72,7 +74,7 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 
 	private int gestureSize[] = new int [MAX_TOUCHPOINTS];
 	private String gestures[][] = new String[MAX_TOUCHPOINTS][MAX_HOTSPOTS];
-	
+
 	private Context myContext = null;
 	
 	// <gesture_no>:<finger_no>:(x_min|x_max,y_min|y_max)
@@ -97,6 +99,7 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 		for (int i = 0; i < MAX_TOUCHPOINTS; i++) {
 			touchPaints[i] = new Paint();
 			touchPaints[i].setColor(colors[i]);
+			touchPaints[i].setAlpha(140);
 			gestureSize[i] = 0;
 		}
      	if (!Utils.canRunRootCommandsInThread())
@@ -119,13 +122,13 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 			c.drawColor(Color.BLACK);
 			// draw grid
 			drawGrid (c);
-			if (event.getAction() != MotionEvent.ACTION_UP) {
-				// draw crosshairs first then circles as a second pass
+			if (event.getAction() != MotionEvent.ACTION_UP) { // Fingers on screen
+				// detect hotspot first then draw circles as a second pass
 				for (int i = 0; i < pointerCount; i++) {
 					int id = event.getPointerId(i);
 					int x = (int) event.getX(i);
 					int y = (int) event.getY(i);
-					drawCrosshairsAndText(x, y, touchPaints[id], i, c);
+					detectHotSpot(x, y, touchPaints[id], i, c);
 				}
 				for (int i = 0; i < pointerCount; i++) {
 					int id = event.getPointerId(i);
@@ -133,20 +136,14 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 					int y = (int) event.getY(i);
 					drawCircle(x, y, touchPaints[id], c);
 				}
-			} else {
-				int textY = 1;
-				CharSequence toClipboard = "";
+			} else { // Fingers lifted
+				CharSequence currentGesture = "";
 				for (int i = 0; i < MAX_TOUCHPOINTS; i++) {
 					for ( int j=0 ; j<gestureSize[i] ; j++ ) {
-						c.drawText(
-								gesturenumber + ":" + (i+1) + ":" + 
-						         gestures[i][j] 
-								, 10 * scale
-								, 20 * textY * scale
-								, textPaint);
-						textY++;
-						drawRectangle(gestures[i][j], touchPaints[i], c);
-						toClipboard=toClipboard+ 
+						drawRectangle(gestures[i][j], 
+								(i+1), (j+1), 
+								touchPaints[i], c);
+						currentGesture=currentGesture+ 
 								"" + gesturenumber + ":" + (i+1) + ":" + 
 						         gestures[i][j]+ "\n" ;
 					}
@@ -155,7 +152,7 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 				
 				ClipboardManager clipboard = (ClipboardManager)
 						myContext.getSystemService(Context.CLIPBOARD_SERVICE);
-				ClipData clip = ClipData.newPlainText("Gesture",toClipboard);
+				ClipData clip = ClipData.newPlainText("Gesture",currentGesture);
 				clipboard.setPrimaryClip(clip);
 
 				CharSequence toastText = "Gesture Copied to Clipboard";
@@ -166,7 +163,7 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 				FileOutputStream fos;
 				try {
 					fos = myContext.openFileOutput(FILENAME, Context.MODE_PRIVATE);
-					fos.write(toClipboard.toString().getBytes());
+					fos.write(currentGesture.toString().getBytes());
 					fos.close();
 				} catch (FileNotFoundException e) {
 					e.printStackTrace();
@@ -199,61 +196,78 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 			c.drawLine(0, (height/gridrows)*i, 
 					   width, (height/gridrows)*i, 
 					   touchPaints[3]);
+			if (DRAW_HOTSPOT_THRESHOLD) {
+				//Threshold Grid
+				c.drawLine(0, (height/gridrows)*i+HOTSPOT_THRESHOLD*scale, 
+						   width, (height/gridrows)*i+HOTSPOT_THRESHOLD*scale, 
+						   touchPaints[4]);
+				c.drawLine(0, (height/gridrows)*i-HOTSPOT_THRESHOLD*scale, 
+						   width, (height/gridrows)*i-HOTSPOT_THRESHOLD*scale, 
+						   touchPaints[4]);
+			}
 		}
 		for (int i = 1; i < gridcolumns; i++) {
 			c.drawLine((width/gridcolumns)*i, 0, 
 					   (width/gridcolumns)*i, height, 
 					   touchPaints[3]);
+			if (DRAW_HOTSPOT_THRESHOLD) {
+			c.drawLine((width/gridcolumns)*i+HOTSPOT_THRESHOLD*scale, 0, 
+					   (width/gridcolumns)*i+HOTSPOT_THRESHOLD*scale, height, 
+					   touchPaints[4]);
+			c.drawLine((width/gridcolumns)*i-HOTSPOT_THRESHOLD*scale, 0, 
+					   (width/gridcolumns)*i-HOTSPOT_THRESHOLD*scale, height, 
+					   touchPaints[4]);
+			}
 		}
 		
 	}
 
-	private void drawCrosshairsAndText(int x, int y, Paint paint, int ptr,
-			 Canvas c) {
-		c.drawLine(0, y, width, y, paint);
-		c.drawLine(x, 0, x, height, paint);
-		
+	private void detectHotSpot(int x, int y, Paint paint, int ptr,
+			Canvas c) {
 		String currentHotspot;
-		
 		// Syntax
 		//   <gesture_no>:<finger_no>:(x_min|x_max,y_min|y_max)
-		
 		int x_min = (x/(width/gridcolumns)  )*(width/gridcolumns);
 		int x_max = (x/(width/gridcolumns)+1)*(width/gridcolumns);
 		int y_min = (y/(height/gridrows)  )*(height/gridrows);
 		int y_max = (y/(height/gridrows)+1)*(height/gridrows);
-		
-		currentHotspot = "(" +  x_min + "|" + x_max + 
-				"," + y_min + "|" + y_max + ")" ;
-		
-		if ( gestureSize[ptr]==0 ) {
-			gestures[ptr][gestureSize[ptr]] = currentHotspot;
-			gestureSize[ptr]++;
-		} else {
-			if ( !gestures[ptr][gestureSize[ptr]-1].equals(currentHotspot)   
-					 && gestureSize[ptr]<MAX_HOTSPOTS ) {
+
+		if ( x_max-x>HOTSPOT_THRESHOLD*scale &&
+				x-x_min>HOTSPOT_THRESHOLD*scale &&
+				y_max-y>HOTSPOT_THRESHOLD*scale &&
+				y-y_min>HOTSPOT_THRESHOLD*scale 
+				) {
+
+			currentHotspot = "(" +  x_min + "|" + x_max + 
+					"," + y_min + "|" + y_max + ")" ;
+
+			if ( gestureSize[ptr]==0 ) {
 				gestures[ptr][gestureSize[ptr]] = currentHotspot;
 				gestureSize[ptr]++;
+			} else {
+				if ( (!gestures[ptr][gestureSize[ptr]-1].equals(currentHotspot)) &&   
+						gestureSize[ptr]<MAX_HOTSPOTS	 ) {
+					gestures[ptr][gestureSize[ptr]] = currentHotspot;
+					gestureSize[ptr]++;
+				}
 			}
 		}
-		
 	}
 
 	private void drawCircle(int x, int y, Paint paint, Canvas c) {
 		c.drawCircle(x, y, 30 * scale, paint);
 	}
 
-	private void drawRectangle(String gesture, Paint paint, Canvas c) {
+	private void drawRectangle(String gesture, int i, int j, Paint paint, Canvas c) {
 		int left=0;
 		int top=0;
 		int right=0;
 		int bottom=0;
-		
+		// Gesture Syntax
+		//  (x_min|x_max,y_min|y_max)
 		String gesture_split[];
 		String x[];
 		String y[];
-		// Syntax
-		//  (x_min|x_max,y_min|y_max)
 		gesture_split = gesture.substring(1, gesture.length()-1).split(",");
 		x = gesture_split[0].split("\\|");
 		y = gesture_split[1].split("\\|");
@@ -264,6 +278,11 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 		bottom=Integer.parseInt(y[1].toString())-2;
 
 		c.drawRect(left, top, right, bottom, paint);
+		String text= gesturenumber  + ":"+i+":"+j;
+		float tWidth = textPaint.measureText(text);
+		c.drawText(	text , left+(right-left)/2-tWidth/2 ,
+				top+((bottom-top)/MAX_TOUCHPOINTS)*i-3 , textPaint);
+		
 	}
 
 	public void surfaceChanged(SurfaceHolder holder, int format, int width,
@@ -282,8 +301,9 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 			c.drawColor(Color.BLACK);
 			// draw grid
 			drawGrid (c);
-			float tWidth = textPaint.measureText(START_TEXT);
-			c.drawText(START_TEXT, width / 2 - tWidth / 2, height / 2 - 10,
+			String text = START_TEXT + " " + gesturenumber;
+			float tWidth = textPaint.measureText(text);
+			c.drawText(text, width / 2 - tWidth / 2, height / 2 - 10,
 					textPaint);
 			getHolder().unlockCanvasAndPost(c);
 		}
