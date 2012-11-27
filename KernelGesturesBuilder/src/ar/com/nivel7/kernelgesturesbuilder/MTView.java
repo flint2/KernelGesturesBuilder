@@ -281,7 +281,7 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 		String text= gesturenumber  + ":"+i+":"+j;
 		float tWidth = textPaint.measureText(text);
 		c.drawText(	text , left+(right-left)/2-tWidth/2 ,
-				top+((bottom-top)/MAX_TOUCHPOINTS)*i-3 , textPaint);
+				top+((bottom-top)/MAX_TOUCHPOINTS)*i-6 , textPaint);
 		
 	}
 
