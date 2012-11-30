@@ -27,9 +27,13 @@
 package ar.com.nivel7.kernelgesturesbuilder;
 
 
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -102,12 +106,6 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 			touchPaints[i].setAlpha(140);
 			gestureSize[i] = 0;
 		}
-     	if (!Utils.canRunRootCommandsInThread())
-     	{
-			CharSequence toastText = "Kernel Gestures Builder No Root :-(";
-			Toast.makeText(myContext, toastText, Toast.LENGTH_SHORT).show();
-     	}
-
 	}
 
 	@Override
@@ -301,6 +299,7 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 			c.drawColor(Color.BLACK);
 			// draw grid
 			drawGrid (c);
+			LoadAndDrawGesture(c);
 			String text = START_TEXT + " " + gesturenumber;
 			float tWidth = textPaint.measureText(text);
 			c.drawText(text, width / 2 - tWidth / 2, height / 2 - 10,
@@ -314,5 +313,39 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 
 	public void surfaceDestroyed(SurfaceHolder holder) {
 	}
-
+	 
+	public boolean LoadAndDrawGesture(Canvas c) {
+	  		String FILENAME = "gesture-"+gesturenumber+".config";
+	  		FileInputStream fIn;
+			String gesture_split[];
+			int i=0;
+			int j[] = new int [MAX_HOTSPOTS];
+			
+			for (i=0; i<MAX_HOTSPOTS ; i++) {
+				j[i]=0;
+			}
+			
+	  		try {
+	  			fIn = myContext.openFileInput(FILENAME);
+	  			InputStreamReader isr = new InputStreamReader ( fIn ) ;
+	            BufferedReader buffreader = new BufferedReader ( isr ) ;
+	            String readString = buffreader.readLine ( ) ;
+	            while ( readString != null ) {
+	            	gesture_split = readString.split(":");
+	            	i = Integer.parseInt(gesture_split[1]);
+	            	if (i>MAX_HOTSPOTS-1) {
+	            		i=MAX_HOTSPOTS-1;
+	            	}
+	            	j[i-1]++;
+	            	drawRectangle(gesture_split[2], i, j[i-1], touchPaints[i-1], c);
+	                readString = buffreader.readLine();
+	            }
+	            isr.close ( ) ;
+	  		} catch (FileNotFoundException e) {
+	  			e.printStackTrace();
+	  		} catch (IOException e) {
+	  			e.printStackTrace();
+	  		}
+	  		return true;
+	}
 }

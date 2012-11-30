@@ -189,7 +189,7 @@ public class KernelGesturesBuilder extends Activity {
 
       		CharSequence toastText;
       		if (Utils.canRunRootCommandsInThread()) {
-      			String response = Utils.executeRootCommandInThread
+      			Utils.executeRootCommandInThread
     			("chmod 755 /data/data/ar.com.nivel7.kernelgesturesbuilder/files/install_gestures.sh\n" +
     			 "/data/data/ar.com.nivel7.kernelgesturesbuilder/files/install_gestures.sh");
       			toastText = "Install Gestures OK";
@@ -197,7 +197,6 @@ public class KernelGesturesBuilder extends Activity {
       		} else {
       			toastText = "Error: NO Root?";
       			Toast.makeText(this , toastText, Toast.LENGTH_SHORT).show();
-     			
       		}
       		
      
@@ -208,8 +207,9 @@ public class KernelGesturesBuilder extends Activity {
   
       		CharSequence toastText;
       		if (Utils.canRunRootCommandsInThread()) {
-      			String response = Utils.executeRootCommandInThread
-    			("cp /data/gestures/* /data/data/ar.com.nivel7.kernelgesturesbuilder/files \n");
+      			Utils.executeRootCommandInThread
+    			("cp /data/gestures/* /data/data/ar.com.nivel7.kernelgesturesbuilder/files \n" +
+    					"chmod 666 /data/data/ar.com.nivel7.kernelgesturesbuilder/files/*");
       			toastText = "Load Gestures OK";
       			Toast.makeText(this , toastText , Toast.LENGTH_SHORT).show();
       		} else {
