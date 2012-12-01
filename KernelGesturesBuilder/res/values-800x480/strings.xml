@@ -1,21 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">KernelGesturesBuilder</string>
-    <string name="menu_installgestures">Install Gestures</string>
-    <string name="menu_loadgestures">Load Gestures</string>
-    <string name="menu_resetgestures">Reset Gestures</string>
-    <string name="menu_resetactions">Reset Actions</string>
-    <string name="menu_settings">Settings</string>
-    <string name="title_activity_kernel_gestures_builder">Kernel Gestures Builder</string>
-    <string name="title_activity_settings">Settings</string>
-	<string name="START_TEXT">Touch Anywhere To Build Gesture </string>
-	<string name="toastGestureSavedOK">Gesture Saved to File </string>
-	<string name="toastResetActionsOK">Actions Reset OK</string>
-	<string name="toastResetGesturesOK">Gestures Reset OK</string>
-	<string name="toastLoadGesturesOK">Gestures Loaded OK</string>
-	<string name="toastLoadGesturesERR">Error Loading Gestures: NO Root?</string>
-	<string name="toastInstallGesturesOK">Gestures Installed OK</string>
-	<string name="toastInstallGesturesERR">Error Installing Gestures: NO Root?</string>
-    <string name="gesture_1">1:1:(0|150,0|150)\n1:1:(330|480,0|150)\n1:2:(0|150,650|800)\n1:2:(330|480,650|800)\n</string>
+   	<string name="gesture_1">1:1:(0|150,0|150)\n1:1:(330|480,0|150)\n1:2:(0|150,650|800)\n1:2:(330|480,650|800)\n</string>
 	<string name="gesture_2">2:1:(0|480,0|200)\n2:2:(0|480,0|200)\n2:3:(0|480,600|800)\n</string>
 	<string name="gesture_3">3:1:(0|150,0|150)\n3:1:(330|480,0|150)\n3:1:(0|150,650|800)\n3:1:(330|480,650|800)\n3:2:(0|150,300|500)\n</string>
 	<string name="gesture_4">4:1:(200|280,699|799)\n4:1:(0|150,300|500)\n4:1:(200|280,300|500)\n4:1:(330|480,300|500)\n4:1:(200|280,699|799)\n</string>

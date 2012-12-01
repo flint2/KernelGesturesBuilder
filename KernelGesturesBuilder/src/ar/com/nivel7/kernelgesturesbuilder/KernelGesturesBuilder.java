@@ -192,10 +192,10 @@ public class KernelGesturesBuilder extends Activity {
       			Utils.executeRootCommandInThread
     			("chmod 755 /data/data/ar.com.nivel7.kernelgesturesbuilder/files/install_gestures.sh\n" +
     			 "/data/data/ar.com.nivel7.kernelgesturesbuilder/files/install_gestures.sh");
-      			toastText = "Install Gestures OK";
+      			toastText = getString(R.string.toastInstallGesturesOK);
       			Toast.makeText(this , toastText , Toast.LENGTH_SHORT).show();
       		} else {
-      			toastText = "Error: NO Root?";
+      			toastText = getString(R.string.toastInstallGesturesERR);
       			Toast.makeText(this , toastText, Toast.LENGTH_SHORT).show();
       		}
       		
@@ -210,10 +210,10 @@ public class KernelGesturesBuilder extends Activity {
       			Utils.executeRootCommandInThread
     			("cp /data/gestures/* /data/data/ar.com.nivel7.kernelgesturesbuilder/files \n" +
     					"chmod 666 /data/data/ar.com.nivel7.kernelgesturesbuilder/files/*");
-      			toastText = "Load Gestures OK";
+      			toastText = getString(R.string.toastLoadGesturesOK);
       			Toast.makeText(this , toastText , Toast.LENGTH_SHORT).show();
       		} else {
-      			toastText = "Error: NO Root?";
+      			toastText = getString(R.string.toastLoadGesturesERR);
       			Toast.makeText(this , toastText, Toast.LENGTH_SHORT).show();
      			
       		}
@@ -230,10 +230,7 @@ public class KernelGesturesBuilder extends Activity {
 
   		try {
   			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
-  			fos.write(("1:1:(0|150,0|150)\n" +
-  					"1:1:(330|480,0|150)\n" +
-  					"1:2:(0|150,650|800)\n" +
-  					"1:2:(330|480,650|800)\n").getBytes());
+  			fos.write(getString(R.string.gesture_1).getBytes());
   			fos.close();
   		} catch (FileNotFoundException e) {
   			e.printStackTrace();
@@ -244,9 +241,7 @@ public class KernelGesturesBuilder extends Activity {
   		FILENAME = "gesture-2.config";
   		try {
   			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
-  			fos.write(("2:1:(0|480,0|200)\n" +
-  					"2:2:(0|480,0|200)\n" +
-  					"2:3:(0|480,600|800)\n").getBytes());
+  			fos.write(getString(R.string.gesture_2).getBytes());
   			fos.close();
   		} catch (FileNotFoundException e) {
   			e.printStackTrace();
@@ -257,11 +252,7 @@ public class KernelGesturesBuilder extends Activity {
   		FILENAME = "gesture-3.config";
   		try {
   			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
-  			fos.write(("3:1:(0|150,0|150)\n" +
-  					"3:1:(330|480,0|150)\n" +
-  					"3:1:(0|150,650|800)\n" +
-  					"3:1:(330|480,650|800)\n" +
-  					"3:2:(0|150,300|500)\n").getBytes());
+  			fos.write(getString(R.string.gesture_3).getBytes());
   			fos.close();
   		} catch (FileNotFoundException e) {
   			e.printStackTrace();
@@ -272,11 +263,7 @@ public class KernelGesturesBuilder extends Activity {
   		FILENAME = "gesture-4.config";
   		try {
   			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
-  			fos.write(("4:1:(200|280,699|799)\n" +
-  					"4:1:(0|150,300|500)\n" +
-  					"4:1:(200|280,300|500)\n" +
-  					"4:1:(330|480,300|500)\n" +
-  					"4:1:(200|280,699|799)\n").getBytes());
+  			fos.write(getString(R.string.gesture_4).getBytes());
   			fos.close();
   		} catch (FileNotFoundException e) {
   			e.printStackTrace();
@@ -287,9 +274,7 @@ public class KernelGesturesBuilder extends Activity {
   		FILENAME = "gesture-5.config";
   		try {
   			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
-  			fos.write(("5:1:(0|480,600|800)\n" +
-  					"5:2:(0|480,600|800)\n" +
-  					"5:3:(0|480,600|800)\n").getBytes());
+  			fos.write(getString(R.string.gesture_5).getBytes());
   			fos.close();
   		} catch (FileNotFoundException e) {
   			e.printStackTrace();
@@ -300,10 +285,7 @@ public class KernelGesturesBuilder extends Activity {
   		FILENAME = "gesture-6.config";
   		try {
   			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
-  			fos.write(("6:1:(0|150,0|200)\n" +
-  					"6:1:(180|300,340|460)\n" +
-  					"6:1:(0|150,0|200)\n" +
-  					"6:2:(330|480,600|800)\n").getBytes());
+  			fos.write(getString(R.string.gesture_6).getBytes());
   			fos.close();
   		} catch (FileNotFoundException e) {
   			e.printStackTrace();
@@ -314,10 +296,7 @@ public class KernelGesturesBuilder extends Activity {
   		FILENAME = "gesture-7.config";
   		try {
   			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
-  			fos.write(("7:1:(330|480,0|200)\n" +
-  					"7:1:(180|300,340|460)\n" +
-  					"7:1:(330|480,0|200)\n" +
-  					"7:2:(0|150,600|800)\n").getBytes());
+  			fos.write(getString(R.string.gesture_7).getBytes());
   			fos.close();
   		} catch (FileNotFoundException e) {
   			e.printStackTrace();
@@ -328,10 +307,7 @@ public class KernelGesturesBuilder extends Activity {
   		FILENAME = "gesture-8.config";
   		try {
   			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
-  			fos.write(("8:1:(0|150,0|200)\n" +
-  					"8:1:(300|480,300|500)\n" +
-  					"8:2:(0|150,600|800)\n" +
-  					"8:2:(300|480,300|500)\n").getBytes());
+  			fos.write(getString(R.string.gesture_8).getBytes());
   			fos.close();
   		} catch (FileNotFoundException e) {
   			e.printStackTrace();
@@ -342,10 +318,7 @@ public class KernelGesturesBuilder extends Activity {
   		FILENAME = "gesture-9.config";
   		try {
   			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
-  			fos.write(("9:1:(0|150,0|200)\n" +
-  					"9:1:(330|480,600|800)\n" +
-  					"9:1:(330|480,0|200)\n" +
-  					"9:1:(0|150,600|800)\n").getBytes());
+  			fos.write(getString(R.string.gesture_9).getBytes());
   			fos.close();
   		} catch (FileNotFoundException e) {
   			e.printStackTrace();
@@ -356,10 +329,7 @@ public class KernelGesturesBuilder extends Activity {
   		FILENAME = "gesture-10.config";
   		try {
   			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
-  			fos.write(("10:1:(0|150,600|800)\n" +
-  					"10:1:(330|480,600|800)\n" +
-  					"10:1:(0|150,600|800)\n" +
-  					"10:1:(330|480,600|800)\n").getBytes());
+  			fos.write(getString(R.string.gesture_10).getBytes());
   			fos.close();
   		} catch (FileNotFoundException e) {
   			e.printStackTrace();
@@ -370,9 +340,7 @@ public class KernelGesturesBuilder extends Activity {
   		FILENAME = "gesture-11.config";
   		try {
   			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
-  			fos.write(("11:1:(0|150,0|200)\n" +
-  					"11:2:(330|480,0|200)\n" +
-  					"11:3:(0|150,600|800)\n").getBytes());
+  			fos.write(getString(R.string.gesture_11).getBytes());
   			fos.close();
   		} catch (FileNotFoundException e) {
   			e.printStackTrace();
@@ -380,7 +348,7 @@ public class KernelGesturesBuilder extends Activity {
   			e.printStackTrace();
   		}
 
-  		CharSequence toastText = "Gestures Reset OK";
+  		CharSequence toastText = getString(R.string.toastResetGesturesOK);
   		Toast.makeText(this , toastText, Toast.LENGTH_SHORT).show();
   		
   		return true;
@@ -528,7 +496,7 @@ public class KernelGesturesBuilder extends Activity {
  			e.printStackTrace();
  		}
 
- 		CharSequence toastText = "Actions Reset OK";
+ 		CharSequence toastText = getString(R.string.toastResetActionsOK);
  		Toast.makeText(this , toastText, Toast.LENGTH_SHORT).show();
  		
  		return true;

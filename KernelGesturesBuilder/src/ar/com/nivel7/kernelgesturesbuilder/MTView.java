@@ -53,7 +53,6 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 	private static final int MAX_HOTSPOTS = 10;
 	private static final int HOTSPOT_THRESHOLD = 12;
 	private static final boolean DRAW_HOTSPOT_THRESHOLD = false; 
-	private static final String START_TEXT = "Touch Anywhere To Build Gesture ";
 
 	private Paint textPaint = new Paint();
 	private Paint touchPaints[] = new Paint[MAX_TOUCHPOINTS];
@@ -169,7 +168,7 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 					e.printStackTrace();
 				}
 
-				toastText = "Gesture Saved to File "+ FILENAME;
+				toastText = myContext.getString(R.string.toastGestureSavedOK) + FILENAME;
 				Toast.makeText(myContext, toastText, Toast.LENGTH_SHORT).show();
 
 				
@@ -300,7 +299,7 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 			// draw grid
 			drawGrid (c);
 			LoadAndDrawGesture(c);
-			String text = START_TEXT + " " + gesturenumber;
+			String text = myContext.getString(R.string.START_TEXT) + " " + gesturenumber;
 			float tWidth = textPaint.measureText(text);
 			c.drawText(text, width / 2 - tWidth / 2, height / 2 - 10,
 					textPaint);
