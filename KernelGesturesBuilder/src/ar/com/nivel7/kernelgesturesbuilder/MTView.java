@@ -168,7 +168,7 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 					e.printStackTrace();
 				}
 
-				toastText = myContext.getString(R.string.toastGestureSavedOK) + FILENAME;
+				toastText = myContext.getString(R.string.toastGestureSavedOK) + " " + FILENAME;
 				Toast.makeText(myContext, toastText, Toast.LENGTH_SHORT).show();
 
 				
