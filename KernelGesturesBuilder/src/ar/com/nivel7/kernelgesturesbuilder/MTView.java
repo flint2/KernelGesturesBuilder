@@ -299,6 +299,7 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 			// draw grid
 			drawGrid (c);
 			LoadAndDrawGesture(c);
+			LoadAndDrawAction(c);
 			String text = myContext.getString(R.string.START_TEXT) + " " + gesturenumber;
 			float tWidth = textPaint.measureText(text);
 			c.drawText(text, width / 2 - tWidth / 2, height / 2 - 10,
@@ -347,4 +348,46 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 	  		}
 	  		return true;
 	}
+	
+	public boolean LoadAndDrawAction(Canvas c) {
+  		String FILENAME = "gesture-"+gesturenumber+".sh";
+  		FileInputStream fIn;
+		final int MAX_COLUMNS = 43;
+		int i=0, j=0;
+		String line;
+				
+  		try {
+  			fIn = myContext.openFileInput(FILENAME);
+  			InputStreamReader isr = new InputStreamReader ( fIn ) ;
+            BufferedReader buffreader = new BufferedReader ( isr ) ;
+            String readString = buffreader.readLine ( ) ;
+            while ( readString != null ) {
+            	if ( readString.length()>MAX_COLUMNS ) {
+            		for (j=0; j<readString.length() ; j+=MAX_COLUMNS) {
+            			if (j+MAX_COLUMNS>readString.length()) {
+	                		line=readString.substring(j, readString.length());
+            			} else {
+	                		line=readString.substring(j, j+MAX_COLUMNS);
+            			}
+                    	int textY = (int) ((15 + 20 * i) * scale);
+                    	c.drawText(line , 10 * scale, textY, textPaint);
+                    	i++;
+            		}
+            	} else {
+            		line=readString;
+                	int textY = (int) ((15 + 20 * i) * scale);
+                	c.drawText(line , 10 * scale, textY, textPaint);
+                	i++;
+            	}
+                readString = buffreader.readLine();
+            }
+            isr.close ( ) ;
+  		} catch (FileNotFoundException e) {
+  			e.printStackTrace();
+  		} catch (IOException e) {
+  			e.printStackTrace();
+  		}
+  		return true;
+}
+	
 }
