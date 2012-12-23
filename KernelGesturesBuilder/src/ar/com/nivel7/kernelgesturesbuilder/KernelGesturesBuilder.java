@@ -171,11 +171,12 @@ public class KernelGesturesBuilder extends Activity {
       					"      cat /data/gestures/gesture_set.sh > /system/etc/init.d/S50GestureActions\n" +
       					"      chmod 755 /system/etc/init.d/S50GestureActions\n" +
       					"   fi\n" +
-      					"fi\n" +
-      					"if [ -f /system/etc/init.d/S50GestureActions ]; then\n" +
+      					"else\n" +
       					"   mount -o remount,rw /system\n" +
       					"   cat /data/gestures/gesture_set.sh > /system/etc/init.d/S50GestureActions\n" +
       					"   chmod 755 /system/etc/init.d/S50GestureActions\n" +
+      					"   kill `ps |grep S50Gesture|cut -d ' ' -f 2 ` 2> /dev/null "+
+      					"	busnohup /system/etc/init.d/S50GestureActions  > /dev/null 2> /dev/null "+
       					"fi\n" +
       					"rm /data/gestures/gesture_set.sh \n" +
       					"rm /data/gestures/install_gestures.sh \n" +
