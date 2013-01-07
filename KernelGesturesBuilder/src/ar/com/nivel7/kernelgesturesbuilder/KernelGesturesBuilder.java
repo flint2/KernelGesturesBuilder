@@ -175,8 +175,8 @@ public class KernelGesturesBuilder extends Activity {
       					"   mount -o remount,rw /system\n" +
       					"   cat /data/gestures/gesture_set.sh > /system/etc/init.d/S50GestureActions\n" +
       					"   chmod 755 /system/etc/init.d/S50GestureActions\n" +
-      					"   kill `ps |grep S50Gesture|cut -d ' ' -f 2 ` 2> /dev/null "+
-      					"	busybox nohup /system/etc/init.d/S50GestureActions  > /dev/null 2> /dev/null "+
+      					"   kill `ps |grep S50Gesture|cut -d ' ' -f 2 ` 2> /dev/null \n"+
+      					"	busybox nohup /system/etc/init.d/S50GestureActions  > /dev/null 2> /dev/null \n"+
       					"fi\n" +
       					"rm /data/gestures/gesture_set.sh \n" +
       					"rm /data/gestures/install_gestures.sh \n" +
