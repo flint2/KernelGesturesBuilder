@@ -1,13 +1,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ar.com.nivel7.kernelgesturesbuilder"
     android:installLocation="auto"
-    android:versionCode="81"
-    android:versionName="1.8.1" 
+    android:versionCode="90"
+    android:versionName="1.9" 
     >
-
+    
     <uses-sdk
         android:minSdkVersion="11"
         android:targetSdkVersion="17" />
+	
+	<uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
 
     <application
         android:allowBackup="true"
@@ -19,7 +21,8 @@
             android:label="@string/title_activity_kernel_gestures_builder" 
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:configChanges="orientation|keyboardHidden">
+            android:configChanges="orientation|keyboardHidden"
+            android:permission="android.permission.ACCESS_SUPERUSER">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
