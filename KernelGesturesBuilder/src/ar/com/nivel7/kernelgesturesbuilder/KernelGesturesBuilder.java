@@ -37,6 +37,7 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
+import com.google.analytics.tracking.android.EasyTracker;
 
 
 public class KernelGesturesBuilder extends Activity {
@@ -61,6 +62,18 @@ public class KernelGesturesBuilder extends Activity {
 		
 		
 	}
+
+	@Override
+	  public void onStart() {
+	    super.onStart();
+	    EasyTracker.getInstance().activityStart(this); 
+	  }
+
+	  @Override
+	  public void onStop() {
+	    super.onStop();
+	    EasyTracker.getInstance().activityStop(this);
+	  }
 
 	@Override
 	public void onNewIntent(Intent intent) {

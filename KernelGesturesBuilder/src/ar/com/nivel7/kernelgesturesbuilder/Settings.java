@@ -23,6 +23,8 @@
 
 package ar.com.nivel7.kernelgesturesbuilder;
 
+import com.google.analytics.tracking.android.EasyTracker;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -44,7 +46,18 @@ public class Settings extends Activity    {
 		startActivity(new Intent(this, KernelGesturesBuilder.class ));
 		super.onDestroy();
 	}
+	
+	@Override
+	  public void onStart() {
+	    super.onStart();
+	    EasyTracker.getInstance().activityStart(this); 
+	 }
 
+	@Override
+	  public void onStop() {
+	    super.onStop();
+	    EasyTracker.getInstance().activityStop(this);
+	}
 }
 
 
