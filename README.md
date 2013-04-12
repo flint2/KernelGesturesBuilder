@@ -1,4 +1,4 @@
--![alt text](https://raw.github.com/flint2/KernelGesturesBuilder/master/KernelGesturesBuilder/res/drawable-hdpi/ic_launcher.png "KernelGesturesBuilder") KernelGesturesBuilder
+![alt text](https://raw.github.com/flint2/KernelGesturesBuilder/master/KernelGesturesBuilder/res/drawable-hdpi/ic_launcher.png "KernelGesturesBuilder") KernelGesturesBuilder
 =====================
 
 ## Kernel Gestures Builder
