@@ -2,12 +2,12 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
-	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
-	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="lib" path="libs/libGoogleAnalyticsV2.jar">
 		<attributes>
-			<attribute name="javadoc_location" value="jar:platform:/resource/KernelGesturesBuilder/libs/javadocs.zip!/com/google/analytics/tracking/android"/>
+			<attribute name="javadoc_location" value="jar:platform:/resource/KernelGesturesBuilder/libs/javadocs.zip!/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
