@@ -1,0 +1,39 @@
+    Version 1.10 [Apr 8 2013]
+    Google Analytics for better support and future development
+
+    Version 1.9.1 [Mar 12 2013]
+    Add support for new Superuser https://github.com/koush/Superuser
+
+    Version 1.8.1 [Jan 7 2013]
+    Resolved bug in gesture install script
+
+    Version 1.8 [Dec 26 2012]
+    Display actions for current gesture
+    Force Portrait Mode
+    Default gestures for 1280x720 devices
+    Install Script in /system/etc/init.d if no /data/gesture_set.sh
+
+    Version 1.7 [Nov 30 2012]
+    Draw actual path of traversal of every finger with different color and alpha blending [Debadatta]
+    Read and Write to Scripts [It_ler]
+    Parse gestures from config
+
+    Version 1.6 [Nov 23 2012]
+    Install new Actions and Gestures config in /data/gestures (overwrites current script!)
+    Changed max fingers to 5 (kernel limit)
+
+    Version 1.5 [Nov 15 2012]
+    Allow changing of Gesture Number (1-30) from Settings
+
+    Version 1.4 [Nov 11 2012]
+    Copy Gesture to Clipboard
+
+    Version 1.3
+    Display Gesture Number fixed
+
+    Version 1.2
+    Display Intercepted Hotspot
+
+    Version 1.1
+    Detect Hotspot
+

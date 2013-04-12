@@ -17,9 +17,13 @@ Android Application to Build Gestures definitions on kernels that support gestur
 ## License
 * [GPL Version 3](http://www.gnu.org/licenses/gpl.html)
 
-## Install
+## Free Install
 There are a few different ways you can install Kernel Gestures Builder
 
-* [Download and Install Kernel Gestures Builder at Google Play Store](https://play.google.com/store/apps/details?id=ar.com.nivel7.kernelgesturesbuilder)
+* [Download and Install Kernel Gestures Builder at Google Play Store for Free](https://play.google.com/store/apps/details?id=ar.com.nivel7.kernelgesturesbuilder)
 * [Download APK from Archive](http://d-h.st/users/flint2/KernelGesturesBuilder)
 * Checkout the source: `git clone https://github.com/flint2/KernelGesturesBuilder.git`, build with Android SDK and install it yourself.
+
+## Donations
+
+If you like my work please [buy me a beer](http://forum.xda-developers.com/donatetome.php?u=4677583)
