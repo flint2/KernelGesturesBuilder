@@ -20,4 +20,8 @@
         android:title="@string/menu_settings"
         android:orderInCategory="500"
         android:titleCondensed="@string/menu_settings"/>
+    <item android:id="@+id/menu_launchactivities"
+        android:title="@string/menu_launchactivities"
+        android:orderInCategory="500"
+        android:titleCondensed="@string/menu_launchactivities"/>
 </menu>

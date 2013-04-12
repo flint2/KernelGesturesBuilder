@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ar.com.nivel7.kernelgesturesbuilder"
     android:installLocation="auto"
-    android:versionCode="100"
-    android:versionName="1.10" 
+    android:versionCode="110"
+    android:versionName="1.11" 
     >
     
     <uses-sdk
@@ -35,6 +35,12 @@
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden">
         </activity>
-    </application>
+        <activity
+            android:name=".LauchActivities"
+            android:label="@string/title_activity_lauchactivities" 
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden">
+        </activity>
+        </application>
 
 </manifest>

@@ -109,6 +109,9 @@ public class KernelGesturesBuilder extends Activity {
 	 	    case R.id.menu_installgestures:
 	        	InstallGestures();
 	        	return true;
+	 	    case R.id.menu_launchactivities:
+	 	    	startActivity(new Intent(this, LauchActivities.class ));
+	        	return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
 	        }
