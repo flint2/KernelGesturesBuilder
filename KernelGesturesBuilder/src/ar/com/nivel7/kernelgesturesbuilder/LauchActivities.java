@@ -30,6 +30,8 @@ import android.widget.TextView;
 import java.util.Collections;
 import java.util.List;
 
+import com.google.analytics.tracking.android.EasyTracker;
+
 public class LauchActivities extends ListActivity {
   AppAdapter adapter=null;
   
@@ -52,6 +54,17 @@ public class LauchActivities extends ListActivity {
     setListAdapter(adapter);
   }
   
+  @Override
+  public void onStart() {
+    super.onStart();
+    EasyTracker.getInstance().activityStart(this); 
+  }
+
+  @Override
+  public void onStop() {
+    super.onStop();
+    EasyTracker.getInstance().activityStop(this);
+  }
   @Override
   protected void onListItemClick(ListView l, View v,
                                  int position, long id) {
