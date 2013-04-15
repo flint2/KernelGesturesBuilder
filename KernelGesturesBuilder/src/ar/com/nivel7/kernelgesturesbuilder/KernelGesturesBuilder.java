@@ -110,6 +110,8 @@ public class KernelGesturesBuilder extends Activity {
 	        	InstallGestures();
 	        	return true;
 	 	    case R.id.menu_launchactivities:
+	 	  		CharSequence toastText = getString(R.string.toastLoadingAppList);
+	 	  		Toast.makeText(this , toastText, Toast.LENGTH_SHORT).show();
 	 	    	startActivity(new Intent(this, LauchActivities.class ));
 	        	return true;
 	        default:
