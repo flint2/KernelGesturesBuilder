@@ -27,6 +27,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -34,12 +35,14 @@ import com.google.analytics.tracking.android.EasyTracker;
 
 public class LauchActivities extends ListActivity {
   AppAdapter adapter=null;
-  
+
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.launchactivities);
     
+    setContentView(R.layout.launchactivities);
+
+	    
     PackageManager pm=getPackageManager();
     Intent main=new Intent(Intent.ACTION_MAIN, null);
         
@@ -52,6 +55,8 @@ public class LauchActivities extends ListActivity {
     
     adapter=new AppAdapter(pm, launchables);
     setListAdapter(adapter);
+    
+	
   }
   
   @Override
