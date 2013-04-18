@@ -1,4 +1,10 @@
 /***
+ * Kernel Gestures Builder
+ * Build Gestures definitions on android kernels that support gestures
+ * Kernel feature developed by Tungstwenty
+ * http://forum.xda-developers.com/showthread.php?t=1831254
+ *  
+ * Portions of code 
   Copyright (c) 2008-2012 CommonsWare, LLC
   Licensed under the Apache License, Version 2.0 (the "License"); you may not
   use this file except in compliance with the License. You may obtain a copy
@@ -35,47 +41,49 @@ import java.util.List;
 
 import com.google.analytics.tracking.android.EasyTracker;
 
-public class LauchActivities extends ListActivity {
+public class LaunchActivities extends ListActivity {
   AppAdapter adapter=null;
   private ProgressDialog pd = null;
   PackageManager pm = null;
   List<ResolveInfo> launchables = null;
-  
+  public Intent main;
+
   @Override
   public void onCreate(Bundle savedInstanceState) {
+	  
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.launchactivities);
 
-    this.pd = ProgressDialog.show(this, "Loading Applications...", "Please Wait...",  true, false);
+    setContentView(R.layout.launchactivities);
     
     new ListActivityTask().execute("");
     
-    adapter=new AppAdapter(pm, launchables);
-    
-    	
   }
   
   private class ListActivityTask extends AsyncTask<String, Void, Object> {
-      protected Object doInBackground(String... args) {
-      
-          pm=getPackageManager();
-          Intent main=new Intent(Intent.ACTION_MAIN, null);
-              
-          main.addCategory(Intent.CATEGORY_LAUNCHER);
+      protected void onPreExecute() {
+    	  LaunchActivities.this.pd = ProgressDialog.show(LaunchActivities.this, getString(R.string.title_loading_applications) , getString(R.string.message_please_wait),  true, false);
+      }
 
-          launchables=pm.queryIntentActivities(main, 0);
-          
-          Collections.sort(launchables,
-                           new ResolveInfo.DisplayNameComparator(pm)); 
+      protected Object doInBackground(String... args) {
+    	  
+    	    pm=getPackageManager();
+    	    main=new Intent(Intent.ACTION_MAIN, null);
+    	        
+    	    main.addCategory(Intent.CATEGORY_LAUNCHER);
       
-          return "";
+    	    launchables=pm.queryIntentActivities(main, 0);
+    	    Collections.sort(launchables,
+    	                     new ResolveInfo.DisplayNameComparator(pm)); 
+
+    	    return "";
       }
 
       protected void onPostExecute(Object result) {
-    	  
-          if (LauchActivities.this.pd != null) {
-        	  LauchActivities.this.pd.dismiss();
+          if (pd != null) {
+        	  pd.dismiss();
           }
+          adapter=new AppAdapter(pm, launchables);
+          setListAdapter(adapter);
       }
  }    
   
@@ -112,7 +120,7 @@ public class LauchActivities extends ListActivity {
     private PackageManager pm=null;
     
     AppAdapter(PackageManager pm, List<ResolveInfo> apps) {
-      super(LauchActivities.this, R.layout.row, apps);
+      super(LaunchActivities.this, R.layout.row, apps);
       this.pm=pm;
     }
     

@@ -8,7 +8,9 @@
     <string name="menu_launchactivities">Launch Activities</string>
     <string name="title_activity_kernel_gestures_builder">Kernel Gestures Builder</string>
     <string name="title_activity_settings">Settings</string>
-    <string name="title_activity_lauchactivities">Launch Activities</string>
+    <string name="title_activity_launchactivities">Launch Activities</string>
+    <string name="title_loading_applications">Loading Applications&#8230;</string>
+    <string name="message_please_wait">Please Wait&#8230;</string>
     <string name="START_TEXT">Touch Anywhere To Build Gesture</string>
 	<string name="toastGestureSavedOK">Gesture Saved to File</string>
 	<string name="toastResetActionsOK">Actions Reset OK</string>

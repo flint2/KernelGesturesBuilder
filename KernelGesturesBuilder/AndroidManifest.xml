@@ -36,8 +36,8 @@
             android:configChanges="orientation|keyboardHidden">
         </activity>
         <activity
-            android:name=".LauchActivities"
-            android:label="@string/title_activity_lauchactivities" 
+            android:name=".LaunchActivities"
+            android:label="@string/title_activity_launchactivities" 
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden">
         </activity>
