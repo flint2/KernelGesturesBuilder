@@ -38,7 +38,9 @@ import com.google.analytics.tracking.android.EasyTracker;
 public class LauchActivities extends ListActivity {
   AppAdapter adapter=null;
   private ProgressDialog pd = null;
-
+  PackageManager pm = null;
+  List<ResolveInfo> launchables = null;
+  
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -47,25 +49,25 @@ public class LauchActivities extends ListActivity {
     this.pd = ProgressDialog.show(this, "Loading Applications...", "Please Wait...",  true, false);
     
     new ListActivityTask().execute("");
+    
+    adapter=new AppAdapter(pm, launchables);
+    
     	
   }
   
   private class ListActivityTask extends AsyncTask<String, Void, Object> {
       protected Object doInBackground(String... args) {
       
-          PackageManager pm=getPackageManager();
+          pm=getPackageManager();
           Intent main=new Intent(Intent.ACTION_MAIN, null);
               
           main.addCategory(Intent.CATEGORY_LAUNCHER);
 
-          List<ResolveInfo> launchables=pm.queryIntentActivities(main, 0);
+          launchables=pm.queryIntentActivities(main, 0);
           
           Collections.sort(launchables,
                            new ResolveInfo.DisplayNameComparator(pm)); 
-          
-          adapter=new AppAdapter(pm, launchables);
-          setListAdapter(adapter);
-          
+      
           return "";
       }
 
