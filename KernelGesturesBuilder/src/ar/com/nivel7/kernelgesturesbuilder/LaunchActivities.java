@@ -22,6 +22,7 @@ package ar.com.nivel7.kernelgesturesbuilder;
 
 import android.app.ListActivity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
@@ -36,6 +37,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
@@ -106,12 +110,22 @@ public class LaunchActivities extends ListActivity {
     ActivityInfo activity=launchable.activityInfo;
     String action = null;
     int gesturenumber = 0;
-    
+    String FILENAME = null;
+	FileOutputStream fos;
     
     gesturenumber = KernelGesturesBuilder.getGesturenumber();
-    action=gesturenumber +"\nam start -n "+activity.applicationInfo.packageName+"/"+activity.name+"\n"; 
+    action="am start -n "+activity.applicationInfo.packageName+"/"+activity.name+"\n"; 
     
-    Toast.makeText(this , action , Toast.LENGTH_LONG).show();
+    FILENAME = "gesture-"+gesturenumber+".sh";
+	try {
+		fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
+		fos.write(action.getBytes());
+		fos.close();
+	} catch (FileNotFoundException e) {
+		e.printStackTrace();
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
     
     this.finish();
     
