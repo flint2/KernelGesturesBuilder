@@ -59,6 +59,9 @@ public class MTView extends SurfaceView implements SurfaceHolder.Callback {
 	private int colors[] = new int[MAX_TOUCHPOINTS];
 	
 	private int gesturenumber;
+	public int getGesturenumber() {
+		return this.gesturenumber;
+	}
 	public void setGesturenumber(int gesturenumber) {
 		this.gesturenumber = gesturenumber;
 	}

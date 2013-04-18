@@ -22,7 +22,6 @@ package ar.com.nivel7.kernelgesturesbuilder;
 
 import android.app.ListActivity;
 import android.app.ProgressDialog;
-import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
@@ -35,6 +34,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Collections;
 import java.util.List;
@@ -104,16 +104,14 @@ public class LaunchActivities extends ListActivity {
                                  int position, long id) {
     ResolveInfo launchable=adapter.getItem(position);
     ActivityInfo activity=launchable.activityInfo;
-    ComponentName name=new ComponentName(activity.applicationInfo.packageName,
-                                         activity.name);
-    Intent i=new Intent(Intent.ACTION_MAIN);
+    String action = null;
     
-    i.addCategory(Intent.CATEGORY_LAUNCHER);
-    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
-                Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
-    i.setComponent(name);
+    action="am start -n "+activity.applicationInfo.packageName+"/"+activity.name+"\n"; 
     
-    startActivity(i);    
+    Toast.makeText(this , action , Toast.LENGTH_LONG).show();
+    
+    this.finish();
+    
   }
   
   class AppAdapter extends ArrayAdapter<ResolveInfo> {
