@@ -15,11 +15,13 @@
 package ar.com.nivel7.kernelgesturesbuilder;
 
 import android.app.ListActivity;
+import android.app.ProgressDialog;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,29 +37,45 @@ import com.google.analytics.tracking.android.EasyTracker;
 
 public class LauchActivities extends ListActivity {
   AppAdapter adapter=null;
+  private ProgressDialog pd = null;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    
     setContentView(R.layout.launchactivities);
 
-	    
-    PackageManager pm=getPackageManager();
-    Intent main=new Intent(Intent.ACTION_MAIN, null);
-        
-    main.addCategory(Intent.CATEGORY_LAUNCHER);
-
-    List<ResolveInfo> launchables=pm.queryIntentActivities(main, 0);
+    this.pd = ProgressDialog.show(this, "Loading Applications...", "Please Wait...",  true, false);
     
-    Collections.sort(launchables,
-                     new ResolveInfo.DisplayNameComparator(pm)); 
-    
-    adapter=new AppAdapter(pm, launchables);
-    setListAdapter(adapter);
-    
-	
+    new ListActivityTask().execute("");
+    	
   }
+  
+  private class ListActivityTask extends AsyncTask<String, Void, Object> {
+      protected Object doInBackground(String... args) {
+      
+          PackageManager pm=getPackageManager();
+          Intent main=new Intent(Intent.ACTION_MAIN, null);
+              
+          main.addCategory(Intent.CATEGORY_LAUNCHER);
+
+          List<ResolveInfo> launchables=pm.queryIntentActivities(main, 0);
+          
+          Collections.sort(launchables,
+                           new ResolveInfo.DisplayNameComparator(pm)); 
+          
+          adapter=new AppAdapter(pm, launchables);
+          setListAdapter(adapter);
+          
+          return "";
+      }
+
+      protected void onPostExecute(Object result) {
+    	  
+          if (LauchActivities.this.pd != null) {
+        	  LauchActivities.this.pd.dismiss();
+          }
+      }
+ }    
   
   @Override
   public void onStart() {
@@ -70,6 +88,7 @@ public class LauchActivities extends ListActivity {
     super.onStop();
     EasyTracker.getInstance().activityStop(this);
   }
+  
   @Override
   protected void onListItemClick(ListView l, View v,
                                  int position, long id) {
