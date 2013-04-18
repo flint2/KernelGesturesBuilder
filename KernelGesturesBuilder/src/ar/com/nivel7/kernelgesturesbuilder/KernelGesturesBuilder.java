@@ -42,7 +42,7 @@ import com.google.analytics.tracking.android.EasyTracker;
 
 public class KernelGesturesBuilder extends Activity {
 
-	private MTView KernelGesturesMTView;
+	private static MTView KernelGesturesMTView;
 	private SharedPreferences sharedPrefs;
 
 	@Override
@@ -62,7 +62,11 @@ public class KernelGesturesBuilder extends Activity {
 		
 		
 	}
-
+	
+	public static int getGesturenumber() {
+		return KernelGesturesMTView.getGesturenumber();
+	}
+	
 	@Override
 	  public void onStart() {
 	    super.onStart();

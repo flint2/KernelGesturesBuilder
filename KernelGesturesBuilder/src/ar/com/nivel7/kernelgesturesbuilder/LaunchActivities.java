@@ -105,8 +105,11 @@ public class LaunchActivities extends ListActivity {
     ResolveInfo launchable=adapter.getItem(position);
     ActivityInfo activity=launchable.activityInfo;
     String action = null;
+    int gesturenumber = 0;
     
-    action="am start -n "+activity.applicationInfo.packageName+"/"+activity.name+"\n"; 
+    
+    gesturenumber = KernelGesturesBuilder.getGesturenumber();
+    action=gesturenumber +"\nam start -n "+activity.applicationInfo.packageName+"/"+activity.name+"\n"; 
     
     Toast.makeText(this , action , Toast.LENGTH_LONG).show();
     
