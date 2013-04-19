@@ -21,4 +21,12 @@
 	<string name="toastInstallGesturesERR">Error Instalando Gestos: NO Root?</string>
 	<string name="toastLoadingAppList">Cargando Lista de Apps&#8230;</string>
 	<string name="icon_description">Icono de Aplicación</string>
+	<string name="preferences_gestures">Gestos</string>
+	<string name="preferences_gesture_number">Número de Gesto</string>
+	<string name="preferences_definegesture">Define Número de Gesto (Id)</string>
+	<string name="preferences_gridlayout">Disposición de Grilla</string>
+	<string name="preferences_gridcolumns">Columnas de Grilla</string>
+	<string name="preferences_definenumbercols">Define el número of columnas</string>
+	<string name="preferences_gridrows">Filas de Grilla</string>
+	<string name="preferences_definenumberrows">Define el número de columnas</string>
 </resources>

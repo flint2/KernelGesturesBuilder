@@ -2,13 +2,13 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <PreferenceCategory 
-        android:title="Gestures"
+        android:title="@string/preferences_gestures"
         android:key="gesture_number">
 
         <ListPreference 
             android:key="gesture_number"
-            android:title="Gesture number"
-            android:summary="Define gesture number (Id)"
+            android:title="@string/preferences_gesture_number"
+            android:summary="@string/preferences_definegesture"
             android:defaultValue="1" 
             android:entries="@array/gestureNumber"
             android:entryValues="@array/gestureNumberValues"
@@ -17,13 +17,13 @@
     </PreferenceCategory>
     
     <PreferenceCategory 
-        android:title="Grid Layout"
+        android:title="@string/preferences_gridlayout"
         android:key="grid_layout">
     
     <ListPreference 
             android:key="grid_columns"
-            android:title="Grid columns"
-            android:summary="Define number of grid columns"
+            android:title="@string/preferences_gridcolumns"
+            android:summary="@string/preferences_definenumbercols"
             android:defaultValue="3" 
             android:entries="@array/gridColumns"
             android:entryValues="@array/gridColumnsValues"
@@ -31,13 +31,12 @@
     
     <ListPreference 
             android:key="grid_rows"
-            android:title="Grid rows"
-            android:summary="Define number of grid rows"
+            android:title="@string/preferences_gridrows"
+            android:summary="@string/preferences_definenumberrows"
             android:defaultValue="5" 
             android:entries="@array/gridRows"
             android:entryValues="@array/gridRowsValues"
      />    
-    
     
     </PreferenceCategory>
 
