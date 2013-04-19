@@ -135,7 +135,7 @@ public class LaunchActivities extends ListActivity {
     private PackageManager pm=null;
     
     AppAdapter(PackageManager pm, List<ResolveInfo> apps) {
-      super(LaunchActivities.this, R.layout.row, apps);
+      super(LaunchActivities.this, R.layout.launchactivityrow, apps);
       this.pm=pm;
     }
     
@@ -152,7 +152,7 @@ public class LaunchActivities extends ListActivity {
     }
     
     private View newView(ViewGroup parent) {
-      return(getLayoutInflater().inflate(R.layout.row, parent, false));
+      return(getLayoutInflater().inflate(R.layout.launchactivityrow, parent, false));
     }
     
     private void bindView(int position, View row) {

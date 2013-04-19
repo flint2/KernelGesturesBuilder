@@ -383,12 +383,7 @@ public class KernelGesturesBuilder extends Activity {
 
  		try {
  			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
- 			fos.write(("mdnie_status=`cat /sys/class/mdnie/mdnie/negative`\n" +
- 					"if [ \"$mdnie_status\" -eq \"0\" ]; then\n" +
- 					"		echo 1 > /sys/class/mdnie/mdnie/negative\n" +
- 					"	else\n" +
- 					"		echo 0 > /sys/class/mdnie/mdnie/negative\n" +
- 					"	fi;\n").getBytes());
+  			fos.write(getString(R.string.action_1).getBytes());
  			fos.close();
  		} catch (FileNotFoundException e) {
  			e.printStackTrace();
@@ -399,7 +394,7 @@ public class KernelGesturesBuilder extends Activity {
  		FILENAME = "gesture-2.sh";
  		try {
  			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
- 			fos.write(("key=26; service call window 12 i32 1 i32 1 i32 5 i32 0 i32 0 i32 $key i32 0 i32 0 i32 0 i32 8 i32 0 i32 0 i32 0 i32 0; service call window 12 i32 1 i32 1 i32 5 i32 0 i32 1 i32 $key i32 0 i32 0 i32 27 i32 8 i32 0 i32 0 i32 0 i32 0\n").getBytes());
+  			fos.write(getString(R.string.action_2).getBytes());
  			fos.close();
  		} catch (FileNotFoundException e) {
  			e.printStackTrace();
@@ -410,7 +405,7 @@ public class KernelGesturesBuilder extends Activity {
  		FILENAME = "gesture-3.sh";
  		try {
  			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
- 			fos.write(("am start -a android.intent.action.MAIN -n com.gokhanmoral.stweaks.app/.MainActivity;").getBytes());
+  			fos.write(getString(R.string.action_3).getBytes());
  			fos.close();
  		} catch (FileNotFoundException e) {
  			e.printStackTrace();
@@ -421,7 +416,7 @@ public class KernelGesturesBuilder extends Activity {
  		FILENAME = "gesture-4.sh";
  		try {
  			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
- 			fos.write(("service call phone 2 s16 \"your beloved number\"").getBytes());
+  			fos.write(getString(R.string.action_4).getBytes());
  			fos.close();
  		} catch (FileNotFoundException e) {
  			e.printStackTrace();
@@ -432,8 +427,7 @@ public class KernelGesturesBuilder extends Activity {
  		FILENAME = "gesture-5.sh";
  		try {
  			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
- 			fos.write(("am start --activity-exclude-from-recents com.sec.android.app.camera\n" +
- 					"am start --activity-exclude-from-recents com.android.camera/.Camera\n").getBytes());
+  			fos.write(getString(R.string.action_5).getBytes());
  			fos.close();
  		} catch (FileNotFoundException e) {
  			e.printStackTrace();
@@ -444,13 +438,7 @@ public class KernelGesturesBuilder extends Activity {
  		FILENAME = "gesture-6.sh";
  		try {
  			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
- 			fos.write(("service call bluetooth 1 | grep \"0 00000000\" > /dev/null\n" +
- 					"		if [ \"$?\" -eq \"0\" ]; then\n" +
- 					"			service call bluetooth 3 > /dev/null\n" +
- 					"		else\n" +
- 					"			[ \"$1\" -eq \"1\" ] && service call bluetooth 5 > /dev/null\n" +
- 					"			[ \"$1\" -ne \"1\" ] && service call bluetooth 4 > /dev/null\n" +
- 					"		fi;\n").getBytes());
+  			fos.write(getString(R.string.action_6).getBytes());
  			fos.close();
  		} catch (FileNotFoundException e) {
  			e.printStackTrace();

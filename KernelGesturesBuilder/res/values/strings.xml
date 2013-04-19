@@ -9,7 +9,7 @@
     <string name="title_activity_kernel_gestures_builder">Kernel Gestures Builder</string>
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_launchactivities">Launch Activities</string>
-    <string name="title_loading_applications">Loading Applications&#8230;</string>
+    <string name="title_loading_applications">Loading Applications</string>
     <string name="message_please_wait">Please Wait&#8230;</string>
     <string name="START_TEXT">Touch Anywhere To Build Gesture</string>
 	<string name="toastGestureSavedOK">Gesture Saved to File</string>
@@ -20,16 +20,5 @@
 	<string name="toastInstallGesturesOK">Gestures Installed OK</string>
 	<string name="toastInstallGesturesERR">Error Installing Gestures: NO Root?</string>
 	<string name="toastLoadingAppList">Loading App List. Wait&#8230;</string>
-	<string name="gesture_1">1:1:(0|150,0|150)\n1:1:(330|480,0|150)\n1:2:(0|150,650|800)\n1:2:(330|480,650|800)\n</string>
-	<string name="gesture_2">2:1:(0|480,0|200)\n2:2:(0|480,0|200)\n2:3:(0|480,600|800)\n</string>
-	<string name="gesture_3">3:1:(0|150,0|150)\n3:1:(330|480,0|150)\n3:1:(0|150,650|800)\n3:1:(330|480,650|800)\n3:2:(0|150,300|500)\n</string>
-	<string name="gesture_4">4:1:(200|280,699|799)\n4:1:(0|150,300|500)\n4:1:(200|280,300|500)\n4:1:(330|480,300|500)\n4:1:(200|280,699|799)\n</string>
-	<string name="gesture_5">5:1:(0|480,600|800)\n5:2:(0|480,600|800)\n5:3:(0|480,600|800)\n</string>
-	<string name="gesture_6">6:1:(0|150,0|200)\n6:1:(180|300,340|460)\n6:1:(0|150,0|200)\n6:2:(330|480,600|800)\n</string>
-	<string name="gesture_7">7:1:(330|480,0|200)\n7:1:(180|300,340|460)\n7:1:(330|480,0|200)\n7:2:(0|150,600|800)\n</string>
-	<string name="gesture_8">8:1:(0|150,0|200)\n8:1:(300|480,300|500)\n8:2:(0|150,600|800)\n8:2:(300|480,300|500)\n</string>
-	<string name="gesture_9">9:1:(0|150,0|200)\n9:1:(330|480,600|800)\n9:1:(330|480,0|200)\n9:1:(0|150,600|800)\n</string>
-	<string name="gesture_10">10:1:(0|150,600|800)\n10:1:(330|480,600|800)\n10:1:(0|150,600|800)\n10:1:(330|480,600|800)\n</string>
-	<string name="gesture_11">11:1:(0|150,0|200)\n11:2:(330|480,0|200)\n11:3:(0|150,600|800)\n</string>
 	<string name="icon_description">Application Icon</string>
 </resources>
