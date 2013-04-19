@@ -449,11 +449,7 @@ public class KernelGesturesBuilder extends Activity {
  		FILENAME = "gesture-7.sh";
  		try {
  			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
- 			fos.write(("service call wifi 14 | grep \"0 00000001\" > /dev/null\n" +
- 					"		if [ \"$?\" -eq \"0\" ]; then\n" +
- 					"			service call wifi 13 i32 1 > /dev/null\n" +
- 					"		else\n" +
- 					"			service call wifi 13 i32 0 > /dev/null\n		fi;\n").getBytes());
+  			fos.write(getString(R.string.action_7).getBytes());
  			fos.close();
  		} catch (FileNotFoundException e) {
  			e.printStackTrace();
@@ -464,7 +460,7 @@ public class KernelGesturesBuilder extends Activity {
  		FILENAME = "gesture-8.sh";
  		try {
  			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
- 			fos.write(("input keyevent 85\n").getBytes());
+  			fos.write(getString(R.string.action_8).getBytes());
  			fos.close();
  		} catch (FileNotFoundException e) {
  			e.printStackTrace();
@@ -475,7 +471,7 @@ public class KernelGesturesBuilder extends Activity {
  		FILENAME = "gesture-9.sh";
  		try {
  			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
- 			fos.write(("input keyevent 164\n").getBytes());
+  			fos.write(getString(R.string.action_9).getBytes());
  			fos.close();
  		} catch (FileNotFoundException e) {
  			e.printStackTrace();
@@ -486,7 +482,7 @@ public class KernelGesturesBuilder extends Activity {
  		FILENAME = "gesture-10.sh";
  		try {
  			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
- 			fos.write(("input keyevent 3\n").getBytes());
+  			fos.write(getString(R.string.action_10).getBytes());
  			fos.close();
  		} catch (FileNotFoundException e) {
  			e.printStackTrace();
@@ -497,7 +493,7 @@ public class KernelGesturesBuilder extends Activity {
  		FILENAME = "gesture-11.sh";
  		try {
  			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
- 			fos.write(("service call vibrator 2 i32 100 i32 0\n        dumpsys activity a | grep \"Recent #1:.* com.anddoes.launcher\"\n        if [ \"$?\" -eq \"0\" ]; then\n            service call activity 24 i32 `dumpsys activity a | grep \"Recent #2:\" | grep -o -E \"#[0-9]+ \" | cut -c2-` i32 2\n        else\n            service call activity 24 i32 `dumpsys activity a | grep \"Recent #1:\" | grep -o -E \"#[0-9]+ \" | cut -c2-` i32 2\n        fi\n").getBytes());
+  			fos.write(getString(R.string.action_11).getBytes());
  			fos.close();
  		} catch (FileNotFoundException e) {
  			e.printStackTrace();

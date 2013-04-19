@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="https://schemas.android.com/tools" tools:ignore="TypographyDashes">
     <string name="gesture_1">1:1:(0|150,0|150)\n1:1:(330|480,0|150)\n1:2:(0|150,650|800)\n1:2:(330|480,650|800)\n</string>
 	<string name="gesture_2">2:1:(0|480,0|200)\n2:2:(0|480,0|200)\n2:3:(0|480,600|800)\n</string>
 	<string name="gesture_3">3:1:(0|150,0|150)\n3:1:(330|480,0|150)\n3:1:(0|150,650|800)\n3:1:(330|480,650|800)\n3:2:(0|150,300|500)\n</string>
@@ -16,10 +16,10 @@
 	<string name="action_3">am start -a android.intent.action.MAIN -n com.gokhanmoral.stweaks.app/.MainActivity;</string>
 	<string name="action_4">service call phone 2 s16 \"your beloved number\"</string>
 	<string name="action_5">am start --activity-exclude-from-recents com.sec.android.app.camera\nam start --activity-exclude-from-recents com.android.camera/.Camera\n</string>
-	<string name="action_6">service call bluetooth 1 | grep \"0 00000000\" > /dev/null\n		if [ \"$?\" -eq \"0\" ]; then\n			service call bluetooth 3 > /dev/null\n		else\n			[ \"$1\" -eq \"1\" ] && service call bluetooth 5 > /dev/null\n			[ \"$1\" -ne \"1\" ] && service call bluetooth 4 > /dev/null\n	fi;\n</string>
-	<string name="action_7"></string>
-	<string name="action_8"></string>
-	<string name="action_9"></string>
-	<string name="action_10"></string>
-	<string name="action_11"></string>
+	<string name="action_6">service call bluetooth 1 | grep \"0 00000000\" \n 							if [ \"$?\" -eq \"0\" ]; then\n 								service call bluetooth 3 \n 							else\n 								[ \"$1\" -eq \"1\" ] &amp;&amp; service call bluetooth 5 \n 								[ \"$1\" -ne \"1\" ] &amp;&amp; service call bluetooth 4 \n 							fi;\n</string>
+	<string name="action_7">service call wifi 14 | grep \"0 00000001\" > /dev/null\n			if [ \"$?\" -eq \"0\" ]; then\n				service call wifi 13 i32 1 > /dev/null\n			else\n				service call wifi 13 i32 0 > /dev/null\n		fi;\n</string>
+	<string name="action_8">input keyevent 85\n</string>
+	<string name="action_9">input keyevent 164\n</string>
+	<string name="action_10">input keyevent 3\n</string>
+	<string name="action_11">service call vibrator 2 i32 100 i32 0\n        dumpsys activity a | grep \"Recent #1:.* com.anddoes.launcher\"\n        if [ \"$?\" -eq \"0\" ]; then\n            service call activity 24 i32 `dumpsys activity a | grep \"Recent #2:\" | grep -o -E \"#[0-9]+ \" | cut -c2-` i32 2\n        else\n            service call activity 24 i32 `dumpsys activity a | grep \"Recent #1:\" | grep -o -E \"#[0-9]+ \" | cut -c2-` i32 2\n        fi\n</string>
 </resources>
