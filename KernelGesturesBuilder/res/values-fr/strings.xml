@@ -5,10 +5,10 @@
     <string name="menu_resetgestures">Réinitialiser Gestes</string>
     <string name="menu_resetactions">Réinitialiser Actions</string>
     <string name="menu_settings">Réglages</string>
-    <string name="menu_launchactivities">Lancement des Activités</string>
+    <string name="menu_launchactivities">Lancement d´Application</string>
     <string name="title_activity_kernel_gestures_builder">Kernel Gestures Builder</string>
     <string name="title_activity_settings">Réglages</string>
-    <string name="title_activity_launchactivities">Lancement des Activités</string>
+    <string name="title_activity_launchactivities">Lancement d´Application</string>
     <string name="title_loading_applications">Chargement d´applications</string>
     <string name="message_please_wait">Attendez s´il vous plaît&#8230;</string>
     <string name="START_TEXT">Touchez écran pour construire geste</string>
