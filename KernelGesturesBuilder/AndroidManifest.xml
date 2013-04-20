@@ -2,7 +2,7 @@
     package="ar.com.nivel7.kernelgesturesbuilder"
     android:installLocation="auto"
     android:versionCode="110"
-    android:versionName="1.11" 
+    android:versionName="1.12" 
     >
     
     <uses-sdk
