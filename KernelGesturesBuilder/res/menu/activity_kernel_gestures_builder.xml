@@ -24,4 +24,8 @@
         android:title="@string/menu_launchactivities"
         android:orderInCategory="500"
         android:titleCondensed="@string/menu_launchactivities"/>
+    <item android:id="@+id/menu_actions"
+        android:title="@string/menu_actions"
+        android:orderInCategory="500"
+        android:titleCondensed="@string/menu_actions"/>
 </menu>
