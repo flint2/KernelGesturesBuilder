@@ -26,7 +26,6 @@ public class CustomListViewAdapter extends ArrayAdapter<ActionsRowItem> {
     private class ViewHolder {
         ImageView imageView;
         TextView txtTitle;
-        TextView txtDesc;
     }
  
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -44,7 +43,6 @@ public class CustomListViewAdapter extends ArrayAdapter<ActionsRowItem> {
         } else
             holder = (ViewHolder) convertView.getTag();
  
-        holder.txtDesc.setText(rowItem.getDesc());
         holder.txtTitle.setText(rowItem.getTitle());
         holder.imageView.setImageResource(rowItem.getImageId());
  
