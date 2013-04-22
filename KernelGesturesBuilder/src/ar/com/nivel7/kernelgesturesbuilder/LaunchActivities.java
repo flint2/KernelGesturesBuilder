@@ -90,7 +90,6 @@ public class LaunchActivities extends Activity  {
           adapter=new AppAdapter(pm, launchables);
           ListView activities_list = (ListView) findViewById(R.id.activities_list);
           activities_list.setAdapter(adapter);
-          // setListAdapter(adapter);
           activities_list.setOnItemClickListener(new OnItemClickListener() {
               public void onItemClick(AdapterView<?> arg0, View v, int position,
                       long id) {
