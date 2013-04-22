@@ -20,7 +20,7 @@
 
 package ar.com.nivel7.kernelgesturesbuilder;
 
-import android.app.ListActivity;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -31,6 +31,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -44,7 +46,7 @@ import java.util.List;
 
 import com.google.analytics.tracking.android.EasyTracker;
 
-public class LaunchActivities extends ListActivity {
+public class LaunchActivities extends Activity  {
   AppAdapter adapter=null;
   private ProgressDialog pd = null;
   PackageManager pm = null;
@@ -86,7 +88,40 @@ public class LaunchActivities extends ListActivity {
         	  pd.dismiss();
           }
           adapter=new AppAdapter(pm, launchables);
-          setListAdapter(adapter);
+          ListView activities_list = (ListView) findViewById(R.id.activities_list);
+          activities_list.setAdapter(adapter);
+          // setListAdapter(adapter);
+          activities_list.setOnItemClickListener(new OnItemClickListener() {
+              public void onItemClick(AdapterView<?> arg0, View v, int position,
+                      long id) {
+            	  
+            	    ResolveInfo launchable=adapter.getItem(position);
+            	    ActivityInfo activity=launchable.activityInfo;
+            	    String action = null;
+            	    int gesturenumber = 0;
+            	    String FILENAME = null;
+            		FileOutputStream fos;
+            	    
+            	    gesturenumber = KernelGesturesBuilder.getGesturenumber();
+            	    action="am start -n "+activity.applicationInfo.packageName+"/"+activity.name+"\n"; 
+            	    
+            	    FILENAME = "gesture-"+gesturenumber+".sh";
+            		try {
+            			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
+            			fos.write(action.getBytes());
+            			fos.close();
+            		} catch (FileNotFoundException e) {
+            			e.printStackTrace();
+            		} catch (IOException e) {
+            			e.printStackTrace();
+            		}
+            	    
+            		LaunchActivities.this.finish();
+            	    
+              
+              }
+          });
+          
       }
  }    
   
@@ -102,34 +137,7 @@ public class LaunchActivities extends ListActivity {
     EasyTracker.getInstance().activityStop(this);
   }
   
-  @Override
-  protected void onListItemClick(ListView l, View v,
-                                 int position, long id) {
-    ResolveInfo launchable=adapter.getItem(position);
-    ActivityInfo activity=launchable.activityInfo;
-    String action = null;
-    int gesturenumber = 0;
-    String FILENAME = null;
-	FileOutputStream fos;
-    
-    gesturenumber = KernelGesturesBuilder.getGesturenumber();
-    action="am start -n "+activity.applicationInfo.packageName+"/"+activity.name+"\n"; 
-    
-    FILENAME = "gesture-"+gesturenumber+".sh";
-	try {
-		fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
-		fos.write(action.getBytes());
-		fos.close();
-	} catch (FileNotFoundException e) {
-		e.printStackTrace();
-	} catch (IOException e) {
-		e.printStackTrace();
-	}
-    
-    this.finish();
-    
-  }
-  
+
   class AppAdapter extends ArrayAdapter<ResolveInfo> {
     private PackageManager pm=null;
     

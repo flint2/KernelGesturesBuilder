@@ -39,7 +39,7 @@ public static final String[] descriptions = new String[] {
             rowItems.add(item);
         }
  
-        listView = (ListView) findViewById(R.id.list);
+        listView = (ListView) findViewById(R.id.actions_list);
         CustomListViewAdapter adapter = new CustomListViewAdapter(this,
                 R.layout.actionsrow , rowItems);
         listView.setAdapter(adapter);
