@@ -18,12 +18,7 @@ public class Actions extends Activity  {
 	public static final String[] titles = new String[] { "Strawberry",
         "Banana", "Orange", "Mixed" };
 
-public static final String[] descriptions = new String[] {
-        "It is an aggregate accessory fruit",
-        "It is the largest herbaceous flowering plant", "Citrus Fruit",
-        "Mixed Fruits" };
-
- public static final Integer[] images = {  R.drawable.ic_launcher,
+    public static final Integer[] images = {  R.drawable.ic_launcher,
         R.drawable.ic_launcher, R.drawable.ic_launcher, R.drawable.ic_launcher  };
         
 
@@ -39,7 +34,7 @@ public static final String[] descriptions = new String[] {
 	    
 	    rowItems = new ArrayList<ActionsRowItem>();
         for (int i = 0; i < titles.length; i++) {
-            ActionsRowItem item = new ActionsRowItem(images[i], titles[i], descriptions[i]);
+            ActionsRowItem item = new ActionsRowItem(images[i], titles[i]);
             rowItems.add(item);
         }
  
