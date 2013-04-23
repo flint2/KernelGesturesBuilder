@@ -54,15 +54,14 @@ public class Actions extends Activity  {
         actions_list.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> arg0, View v, int position,
                     long id) {
-            	/*
+            	
             	Toast toast = Toast.makeText(getApplicationContext(),
                         "Item " + (position + 1) + ": " + rowItems.get(position),
                         Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
                     toast.show();
-                    */
-                    
-                    Actions.this.finish();
+
+                    // Actions.this.finish();
             }
             
         });
