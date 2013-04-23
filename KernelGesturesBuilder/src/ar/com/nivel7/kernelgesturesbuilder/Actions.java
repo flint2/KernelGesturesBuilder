@@ -33,7 +33,6 @@ public class Actions extends Activity  {
         R.drawable.ic_launcher, R.drawable.ic_launcher, R.drawable.ic_launcher  };
         
 
-	ListView listView;
     List<ActionsRowItem> rowItems;
 	  
       @Override
@@ -49,19 +48,21 @@ public class Actions extends Activity  {
             rowItems.add(item);
         }
  
-        listView = (ListView) findViewById(R.id.actions_list);
-        ActionsAdapter adapter = new ActionsAdapter(this,
-                R.layout.actionsrow , rowItems);
-        listView.setAdapter(adapter);
-        
-        listView.setOnItemClickListener(new OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view, int position,
+        ListView actions_list = (ListView) findViewById(R.id.actions_list);
+        ActionsAdapter adapter = new ActionsAdapter(this, R.layout.actionsrow , rowItems);
+        actions_list.setAdapter(adapter);
+        actions_list.setOnItemClickListener(new OnItemClickListener() {
+            public void onItemClick(AdapterView<?> arg0, View v, int position,
                     long id) {
+            	/*
             	Toast toast = Toast.makeText(getApplicationContext(),
                         "Item " + (position + 1) + ": " + rowItems.get(position),
                         Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
                     toast.show();
+                    */
+                    
+                    Actions.this.finish();
             }
             
         });
@@ -94,7 +95,7 @@ class ActionsAdapter extends ArrayAdapter<ActionsRowItem> {
         this.context = context;
     }
  
-    /*private view holder class*/
+
     private class ViewHolder {
         ImageView imageView;
         TextView txtTitle;

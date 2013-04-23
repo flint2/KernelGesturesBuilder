@@ -12,7 +12,7 @@
  
     <TextView
         android:id="@+id/actiontitle"
-        android:textIsSelectable="true"
+        android:textIsSelectable="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/actionicon"
@@ -22,7 +22,7 @@
  
     <TextView
         android:id="@+id/actiondesc"
-        android:textIsSelectable="true"
+        android:textIsSelectable="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/actiontitle"
