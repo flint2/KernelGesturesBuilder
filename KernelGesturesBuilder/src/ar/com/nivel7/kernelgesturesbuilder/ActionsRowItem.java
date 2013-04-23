@@ -3,10 +3,12 @@ package ar.com.nivel7.kernelgesturesbuilder;
 public class ActionsRowItem {
 	private int imageId;
     private String title;
+    private String desc;
  
-    public ActionsRowItem(int imageId, String title) {
+    public ActionsRowItem(int imageId, String title, String desc) {
         this.imageId = imageId;
         this.title = title;
+        this.desc = desc;
     }
     public int getImageId() {
         return imageId;
@@ -19,6 +21,12 @@ public class ActionsRowItem {
     }
     public void setTitle(String title) {
         this.title = title;
+    }
+    public String getDesc() {
+        return desc;
+    }
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
     @Override
     public String toString() {

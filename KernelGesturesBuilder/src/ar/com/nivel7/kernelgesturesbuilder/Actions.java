@@ -24,6 +24,11 @@ public class Actions extends Activity  {
 	public static final String[] titles = new String[] { "Strawberry",
         "Banana", "Orange", "Mixed" };
 
+	public static final String[] descriptions = new String[] {
+        "It is an aggregate accessory fruit",
+        "It is the largest herbaceous flowering plant", "Citrus Fruit",
+        "Mixed Fruits" };
+	
     public static final Integer[] images = {  R.drawable.ic_launcher,
         R.drawable.ic_launcher, R.drawable.ic_launcher, R.drawable.ic_launcher  };
         
@@ -40,7 +45,7 @@ public class Actions extends Activity  {
 	    
 	    rowItems = new ArrayList<ActionsRowItem>();
         for (int i = 0; i < titles.length; i++) {
-            ActionsRowItem item = new ActionsRowItem(images[i], titles[i]);
+            ActionsRowItem item = new ActionsRowItem(images[i], titles[i], descriptions[i]);
             rowItems.add(item);
         }
  
@@ -93,6 +98,7 @@ class ActionsAdapter extends ArrayAdapter<ActionsRowItem> {
     private class ViewHolder {
         ImageView imageView;
         TextView txtTitle;
+        TextView txtDesc;
     }
  
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -102,16 +108,18 @@ class ActionsAdapter extends ArrayAdapter<ActionsRowItem> {
         LayoutInflater mInflater = (LayoutInflater) context
                 .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.launchactivities, null);
+            convertView = mInflater.inflate(R.layout.actionsrow , null);
             holder = new ViewHolder();
-            holder.txtTitle = (TextView) convertView.findViewById(R.id.actionlabel);
+            holder.txtTitle = (TextView) convertView.findViewById(R.id.actiontitle);
             holder.imageView = (ImageView) convertView.findViewById(R.id.actionicon);
+            holder.txtDesc = (TextView) convertView.findViewById(R.id.actiondesc);
             convertView.setTag(holder);
         } else
             holder = (ViewHolder) convertView.getTag();
  
-        holder.txtTitle.setText(rowItem.getTitle());
-        holder.imageView.setImageResource(rowItem.getImageId());
+       holder.txtDesc.setText(rowItem.getDesc());
+       holder.txtTitle.setText(rowItem.getTitle());
+       holder.imageView.setImageResource(rowItem.getImageId());
  
         return convertView;
     }
