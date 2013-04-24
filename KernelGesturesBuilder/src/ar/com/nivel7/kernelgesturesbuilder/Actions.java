@@ -50,17 +50,17 @@ public class Actions extends Activity  {
 	};
 	
     public static final Integer[] images = {  
-    	R.drawable.ic_launcher,
-        R.drawable.ic_launcher, 
-        R.drawable.ic_launcher, 
-    	R.drawable.ic_launcher,
-        R.drawable.ic_launcher, 
-        R.drawable.ic_launcher, 
-    	R.drawable.ic_launcher,
-        R.drawable.ic_launcher, 
-        R.drawable.ic_launcher, 
-    	R.drawable.ic_launcher,
-        R.drawable.ic_launcher
+    	R.drawable.ic_mdnie,
+        R.drawable.ic_question, 
+        R.drawable.ic_stweaks, 
+    	R.drawable.ic_lovecall,
+        R.drawable.ic_camera, 
+        R.drawable.ic_bluetooth, 
+    	R.drawable.ic_wifi,
+        R.drawable.ic_playpause, 
+        R.drawable.ic_mute, 
+    	R.drawable.ic_home,
+        R.drawable.ic_alttab
         };
         
 
