@@ -8,6 +8,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,35 +21,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.analytics.tracking.android.EasyTracker;
+
+
 public class Actions extends Activity  {
 
-	public static final String[] titles = new String[] { 
-		"Toggle inverted screen",
-        "action_2", 
-        "Start Stweaks", 
-        "Call to the intended phone", 
-        "Start the camera app",
-        "Toggle bluetooth on/off",
-        "Toggle WiFi on/off",
-        "Media Play/Pause",
-        "Volume Mute/Unmute",
-        "Home",
-        "Switch last 2 activities"};
-
-	public static final String[] actions = new String[] {
-        "mdnie_status=`cat /sys/class/mdnie/mdnie/negative`\n	if [ \"$mdnie_status\" -eq \"0\" ]; then\n		echo 1 > /sys/class/mdnie/mdnie/negative\n	else\n		echo 0 > /sys/class/mdnie/mdnie/negative\n	fi;\n",
-        "key=26; service call window 12 i32 1 i32 1 i32 5 i32 0 i32 0 i32 $key i32 0 i32 0 i32 0 i32 8 i32 0 i32 0 i32 0 i32 0; service call window 12 i32 1 i32 1 i32 5 i32 0 i32 1 i32 $key i32 0 i32 0 i32 27 i32 8 i32 0 i32 0 i32 0 i32 0\n", 
-        "am start -a android.intent.action.MAIN -n com.gokhanmoral.stweaks.app/.MainActivity;",
-        "service call phone 2 s16 \"your beloved number\"",
-        "am start --activity-exclude-from-recents com.sec.android.app.camera\nam start --activity-exclude-from-recents com.android.camera/.Camera\n",
-        "service call bluetooth 1 | grep \"0 00000000\" \n 							if [ \"$?\" -eq \"0\" ]; then\n 								service call bluetooth 3 \n 							else\n 								[ \"$1\" -eq \"1\" ] &amp;&amp; service call bluetooth 5 \n 								[ \"$1\" -ne \"1\" ] &amp;&amp; service call bluetooth 4 \n 							fi;\n",
-        "service call wifi 14 | grep \"0 00000001\" > /dev/null\n			if [ \"$?\" -eq \"0\" ]; then\n				service call wifi 13 i32 1 > /dev/null\n			else\n				service call wifi 13 i32 0 > /dev/null\n		fi;\n",
-        "input keyevent 85\n",
-        "input keyevent 164\n",
-        "input keyevent 3\n",
-        "service call vibrator 2 i32 100 i32 0\n        dumpsys activity a | grep \"Recent #1:.* com.anddoes.launcher\"\n        if [ \"$?\" -eq \"0\" ]; then\n            service call activity 24 i32 `dumpsys activity a | grep \"Recent #2:\" | grep -o -E \"#[0-9]+ \" | cut -c2-` i32 2\n        else\n            service call activity 24 i32 `dumpsys activity a | grep \"Recent #1:\" | grep -o -E \"#[0-9]+ \" | cut -c2-` i32 2\n        fi\n"
-	};
-	
     public static final Integer[] images = {  
     	R.drawable.ic_mdnie,
         R.drawable.ic_question, 
@@ -62,14 +38,16 @@ public class Actions extends Activity  {
     	R.drawable.ic_home,
         R.drawable.ic_alttab
         };
-        
-
     List<ActionsRowItem> rowItems;
 	  
       @Override
 	  public void onCreate(Bundle savedInstanceState) {
 		  
-	    super.onCreate(savedInstanceState);
+    	Resources res = getResources();
+    	String[] titles = res.getStringArray(R.array.action_titles);
+    	String[] actions =  res.getStringArray(R.array.actions);
+
+    	super.onCreate(savedInstanceState);
 
 	    setContentView(R.layout.actions);
 	    
@@ -161,5 +139,39 @@ class ActionsAdapter extends ArrayAdapter<ActionsRowItem> {
        holder.imageView.setImageResource(rowItem.getImageId());
  
         return convertView;
+    }
+}
+
+class ActionsRowItem {
+	private int imageId;
+    private String title;
+    private String desc;
+ 
+    public ActionsRowItem(int imageId, String title, String desc) {
+        this.imageId = imageId;
+        this.title = title;
+        this.desc = desc;
+    }
+    public int getImageId() {
+        return imageId;
+    }
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
+    }
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    public String getDesc() {
+        return desc;
+    }
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+    @Override
+    public String toString() {
+        return title + "\n" + desc;
     }
 }

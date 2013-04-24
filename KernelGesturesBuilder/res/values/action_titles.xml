@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array  name="action_titles">
+        <item>Toggle inverted screen</item>
+        <item>action_2</item>
+        <item>Start Stweaks</item> 
+        <item>Call to the intended phone</item> 
+        <item>Start the camera app</item>
+        <item>Toggle bluetooth on/off</item>
+        <item>Toggle WiFi on/off</item>
+        <item>Media Play/Pause</item>
+        <item>Volume Mute/Unmute</item>
+        <item>Home</item>
+        <item>Switch last 2 activities</item>
+    </string-array>     
+</resources>
