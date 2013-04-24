@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array  name="action_titles">
+        <item>wechseln invertierten Bildschirm</item>
+        <item>action_2</item>
+        <item>starten Stweaks</item> 
+        <item>Call to the intended phone</item> 
+        <item>starten Kamera</item>
+        <item>bluetooth einschalten/ausschalten</item>
+        <item>WiFi einschalten/ausschalten</item>
+        <item>Media Play/Pause</item>
+        <item>Volume Mute/Unmute</item>
+        <item>Home</item>
+        <item>Schalten letzten 2 Aktivitäten</item>
+    </string-array>     
+</resources>

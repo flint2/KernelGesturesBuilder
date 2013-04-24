@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array  name="action_titles">
+        <item>Écran inversé/normal</item>
+        <item>action_2</item>
+        <item>Démarrer Stweaks</item> 
+        <item>Appelez au téléphone destiné</item> 
+        <item>Démarrer caméra</item>
+        <item>Activer/Désactiver Bluetooth</item>
+        <item>Activer/Désactiver WiFi</item>
+        <item>Média Jouer/Pauser</item>
+        <item>Volume Muet/non Muet</item>
+        <item>Écran d'accueil</item>
+        <item>Échanger 2 dernières activités</item>
+    </string-array>     
+</resources>
