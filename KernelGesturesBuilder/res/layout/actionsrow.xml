@@ -4,11 +4,12 @@
     android:layout_height="fill_parent" >
     <ImageView
         android:id="@+id/actionicon"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:scaleType="centerInside"
         android:contentDescription="@string/icon_description"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp" />
+        android:paddingLeft="2dp"
+        android:paddingRight="5dp" />
  
     <TextView
         android:id="@+id/actiontitle"
@@ -16,18 +17,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/actionicon"
-        android:paddingBottom="10dp"
-        android:textColor="#CC0033"
-        android:textSize="16sp" />
+	    android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:textSize="10pt" />
  
-    <TextView
-        android:id="@+id/actiondesc"
-        android:textIsSelectable="false"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/actiontitle"
-        android:layout_toRightOf="@+id/actionicon"
-        android:paddingLeft="10dp"
-        android:textColor="#3399FF"
-        android:textSize="14sp" />
 </RelativeLayout>

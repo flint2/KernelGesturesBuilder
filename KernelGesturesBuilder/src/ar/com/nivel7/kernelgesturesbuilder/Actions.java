@@ -23,17 +23,17 @@ import com.google.analytics.tracking.android.EasyTracker;
 public class Actions extends Activity  {
 
 	public static final String[] titles = new String[] { 
-		"Toggle inverted screen colors",
+		"Toggle inverted screen",
         "action_2", 
         "Start Stweaks", 
-        "Start a call to the intended phone", 
+        "Call to the intended phone", 
         "Start the camera app",
         "Toggle bluetooth on/off",
         "Toggle WiFi on/off",
         "Media Play/Pause",
         "Volume Mute/Unmute",
         "Home",
-        "Toggle between the last 2 activities"};
+        "Switch last 2 activities"};
 
 	public static final String[] actions = new String[] {
         "mdnie_status=`cat /sys/class/mdnie/mdnie/negative`\n	if [ \"$mdnie_status\" -eq \"0\" ]; then\n		echo 1 > /sys/class/mdnie/mdnie/negative\n	else\n		echo 0 > /sys/class/mdnie/mdnie/negative\n	fi;\n",
@@ -140,7 +140,6 @@ class ActionsAdapter extends ArrayAdapter<ActionsRowItem> {
     private class ViewHolder {
         ImageView imageView;
         TextView txtTitle;
-        TextView txtDesc;
     }
  
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -154,12 +153,10 @@ class ActionsAdapter extends ArrayAdapter<ActionsRowItem> {
             holder = new ViewHolder();
             holder.txtTitle = (TextView) convertView.findViewById(R.id.actiontitle);
             holder.imageView = (ImageView) convertView.findViewById(R.id.actionicon);
-            holder.txtDesc = (TextView) convertView.findViewById(R.id.actiondesc);
             convertView.setTag(holder);
         } else
             holder = (ViewHolder) convertView.getTag();
  
-       holder.txtDesc.setText(rowItem.getDesc());
        holder.txtTitle.setText(rowItem.getTitle());
        holder.imageView.setImageResource(rowItem.getImageId());
  
