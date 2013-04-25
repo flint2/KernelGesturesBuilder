@@ -27,7 +27,7 @@ public class Actions extends Activity  {
 
     public static final Integer[] images = {  
     	R.drawable.ic_mdnie,
-        R.drawable.ic_question, 
+        R.drawable.ic_power, 
         R.drawable.ic_stweaks, 
     	R.drawable.ic_lovecall,
         R.drawable.ic_camera, 
@@ -43,7 +43,19 @@ public class Actions extends Activity  {
         R.drawable.ic_media_next, 
         R.drawable.ic_mediaprevious, 
         R.drawable.ic_recentapps, 
-        R.drawable.ic_closeapp 
+        R.drawable.ic_closeapp,
+        R.drawable.ic_question, 
+        R.drawable.ic_question, 
+        R.drawable.ic_question, 
+        R.drawable.ic_question, 
+        R.drawable.ic_question, 
+        R.drawable.ic_question, 
+        R.drawable.ic_question, 
+        R.drawable.ic_question, 
+        R.drawable.ic_question, 
+        R.drawable.ic_question, 
+        R.drawable.ic_question, 
+        R.drawable.ic_question
         };
     List<ActionsRowItem> rowItems;
 	  
