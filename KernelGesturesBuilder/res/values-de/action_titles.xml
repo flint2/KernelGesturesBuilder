@@ -2,7 +2,7 @@
 <resources>
     <string-array  name="action_titles">
         <item>wechseln invertierten Bildschirm</item>
-        <item>action_2</item>
+        <item>Schalten Sie den Bildschirm</item>
         <item>starten Stweaks</item> 
         <item>Call to the intended phone</item> 
         <item>starten Kamera</item>
@@ -12,5 +12,12 @@
         <item>Volume Mute/Unmute</item>
         <item>Home</item>
         <item>Schalten letzten 2 Aktivitäten</item>
+        <item>Volume Lauter</item>
+        <item>Volume Leiser</item>
+        <item>Media Stoppen</item>
+        <item>Media nächste</item>
+        <item>Media früher</item>
+        <item>Aktuelle Anwendungen</item>
+        <item>Stoppen Vordergrund Anwendung</item>
     </string-array>     
 </resources>

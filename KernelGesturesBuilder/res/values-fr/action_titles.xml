@@ -2,7 +2,7 @@
 <resources>
     <string-array  name="action_titles">
         <item>Écran inversé/normal</item>
-        <item>action_2</item>
+        <item>Éteignez l'écran</item>
         <item>Démarrer Stweaks</item> 
         <item>Appelez au téléphone destiné</item> 
         <item>Démarrer caméra</item>
@@ -12,5 +12,12 @@
         <item>Volume Muet/non Muet</item>
         <item>Écran d´accueil</item>
         <item>Échanger 2 dernières activités</item>
+        <item>Augmenter le volume</item>
+        <item>Baisser le volume</item>
+        <item>Média Arrêt</item>
+        <item>Média Suivant</item>
+        <item>Média précédente</item>
+        <item>Applications récentes</item>
+        <item>Arrêtez application de premier plan</item>
     </string-array>     
 </resources>

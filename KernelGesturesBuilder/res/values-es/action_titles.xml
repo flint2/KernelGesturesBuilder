@@ -2,7 +2,7 @@
 <resources>
     <string-array  name="action_titles">
         <item>Pantalla Invertida/Normal</item>
-        <item>action_2</item>
+        <item>Apagar pantalla</item>
         <item>Abrir Stweaks</item> 
         <item>Llamar al número de teléfono</item> 
         <item>Abrir Cámara</item>
@@ -12,5 +12,12 @@
         <item>Silenciar/Activar Volumen</item>
         <item>Inicio</item>
         <item>Cambiar entre 2 actividades</item>
+        <item>Subir Volumen</item>
+        <item>Bajar Volumen</item>
+        <item>Media Stop</item>
+        <item>Media Siguiente</item>
+        <item>Media Previo</item>
+        <item>Aplicaciones Recientes</item>
+        <item>Cerrar aplicación en primer plano</item>
     </string-array>     
 </resources>
