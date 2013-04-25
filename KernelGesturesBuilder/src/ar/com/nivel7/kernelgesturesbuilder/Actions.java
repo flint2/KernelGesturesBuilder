@@ -37,13 +37,13 @@ public class Actions extends Activity  {
         R.drawable.ic_mute, 
     	R.drawable.ic_home,
         R.drawable.ic_alttab,
-        R.drawable.ic_question, 
-        R.drawable.ic_question, 
-        R.drawable.ic_question, 
-        R.drawable.ic_question, 
-        R.drawable.ic_question, 
-        R.drawable.ic_question, 
-        R.drawable.ic_question 
+        R.drawable.ic_volumeup, 
+        R.drawable.ic_volumedown, 
+        R.drawable.ic_mediastop, 
+        R.drawable.ic_media_next, 
+        R.drawable.ic_mediaprevious, 
+        R.drawable.ic_recentapps, 
+        R.drawable.ic_closeapp 
         };
     List<ActionsRowItem> rowItems;
 	  
