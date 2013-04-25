@@ -2,7 +2,7 @@
 <resources>
     <string-array  name="action_titles">
         <item>Toggle inverted screen</item>
-        <item>action_2</item>
+        <item>Power down the screen</item>
         <item>Start Stweaks</item> 
         <item>Call to the intended phone</item> 
         <item>Start the camera app</item>
@@ -12,5 +12,12 @@
         <item>Volume Mute/Unmute</item>
         <item>Home</item>
         <item>Switch last 2 activities</item>
+        <item>Volume up</item>
+        <item>Volume down</item>
+        <item>Media Stop</item>
+        <item>Media next</item>
+        <item>Media previous</item>
+        <item>Recent apps</item>
+        <item>Stop foreground app</item>
     </string-array>     
 </resources>
