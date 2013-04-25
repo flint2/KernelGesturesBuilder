@@ -2,7 +2,7 @@
 <resources>
     <string-array  name="action_titles">
         <item>Écran inversé/normal</item>
-        <item>Éteignez l'écran</item>
+        <item>Éteignez l´écran</item>
         <item>Démarrer Stweaks</item> 
         <item>Appelez au téléphone destiné</item> 
         <item>Démarrer caméra</item>

@@ -18,6 +18,6 @@
 	    <item># Simulate key press - Media Next\ninput keyevent 87\n</item>
 	    <item># Simulate key press - Media Previous\ninput keyevent 88\n</item>
 	    <item># Simulate key press - Recent Apps\ninput keyevent 187\n</item>
-	    <item>service call activity 79 s16 `dumpsys activity top | grep '^TASK.*' | cut -d ' ' -f2`\n</item>
+	    <item>service call activity 79 s16 \`dumpsys activity top | grep \'^TASK.*\' | cut -d \' \' -f2\`\n</item>
 	</string-array>
 </resources>
