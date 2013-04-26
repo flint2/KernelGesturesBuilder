@@ -7,6 +7,7 @@
     <string name="menu_settings">Einstellungen</string>
     <string name="menu_launchactivities">Starten Applikation</string>
     <string name="menu_actions">Definieren Handlungen</string>
+    <string name="menu_testaction">Test Handlung</string>
     <string name="title_activity_kernel_gestures_builder">Kernel Gestures Builder</string>
     <string name="title_activity_settings">Einstellungen</string>
     <string name="title_activity_launchactivities">Starten Applikation</string>

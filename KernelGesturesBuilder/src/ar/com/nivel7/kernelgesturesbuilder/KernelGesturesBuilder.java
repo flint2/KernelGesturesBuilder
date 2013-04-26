@@ -44,6 +44,7 @@ public class KernelGesturesBuilder extends Activity {
 
 	private static MTView KernelGesturesMTView;
 	private SharedPreferences sharedPrefs;
+	String datapath = null;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -59,7 +60,7 @@ public class KernelGesturesBuilder extends Activity {
 		KernelGesturesMTView.setGridcolumns(Integer.parseInt(sharedPrefs.getString("grid_columns", "3")));
 		KernelGesturesMTView.setGridrows(Integer.parseInt(sharedPrefs.getString("grid_rows", "5")));
 		setContentView(KernelGesturesMTView);
-		
+		datapath=getApplicationContext().getFilesDir().getPath();
 		
 	}
 	
@@ -118,6 +119,9 @@ public class KernelGesturesBuilder extends Activity {
 	 	    	return true;
 	 	    case R.id.menu_actions:
 	 	    	startActivity(new Intent(this, Actions.class ));
+	 	    	return true;
+	 	    case R.id.menu_testaction:
+	 	    	TestAction();
 	 	    	return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
@@ -183,7 +187,7 @@ public class KernelGesturesBuilder extends Activity {
       					"if [ ! -d /data/gestures ]; then\n" +
       					"   mkdir /data/gestures\n" +
       					"fi\n" +
-      					"cp /data/data/ar.com.nivel7.kernelgesturesbuilder/files/* /data/gestures\n" +
+      					"cp "+datapath+"/* /data/gestures\n" +
       					"chmod 755 /data/gestures/*.sh\n" +
       					"chmod 644 /data/gestures/*.config\n" +
       					"if [ -f /data/gesture_set.sh ]; then\n" +
@@ -214,8 +218,7 @@ public class KernelGesturesBuilder extends Activity {
       		CharSequence toastText;
       		if (Utils.canRunRootCommandsInThread()) {
       			Utils.executeRootCommandInThread
-    			("chmod 755 /data/data/ar.com.nivel7.kernelgesturesbuilder/files/install_gestures.sh\n" +
-    			 "/data/data/ar.com.nivel7.kernelgesturesbuilder/files/install_gestures.sh");
+    			("chmod 755 "+datapath+"/install_gestures.sh\n"+datapath+"/install_gestures.sh");
       			toastText = getString(R.string.toastInstallGesturesOK);
       			Toast.makeText(this , toastText , Toast.LENGTH_SHORT).show();
       		} else {
@@ -232,8 +235,7 @@ public class KernelGesturesBuilder extends Activity {
       		CharSequence toastText;
       		if (Utils.canRunRootCommandsInThread()) {
       			Utils.executeRootCommandInThread
-    			("cp /data/gestures/* /data/data/ar.com.nivel7.kernelgesturesbuilder/files \n" +
-    					"chmod 666 /data/data/ar.com.nivel7.kernelgesturesbuilder/files/*");
+    			("cp /data/gestures/* "+datapath+" \n"+"chmod 666 "+datapath+"/*");
       			toastText = getString(R.string.toastLoadGesturesOK);
       			Toast.makeText(this , toastText , Toast.LENGTH_SHORT).show();
       		} else {
@@ -510,5 +512,20 @@ public class KernelGesturesBuilder extends Activity {
  		return true;
  	}
 
+    public boolean TestAction() {
+    	  
+  		CharSequence toastText;
+  		String scriptname = datapath+"/gesture-"+getGesturenumber()+".sh";
+  		
+  		if (Utils.canRunRootCommandsInThread()) {
+  			Utils.executeRootCommandInThread
+  			("chmod 777 "+scriptname+"\n"+scriptname);
+  		} else {
+  			toastText = getString(R.string.toastLoadGesturesERR);
+  			Toast.makeText(this , toastText, Toast.LENGTH_SHORT).show();
+  		}
+
+  		return true;
+  }
      
 }

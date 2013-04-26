@@ -7,6 +7,7 @@
     <string name="menu_settings">Configuración</string>
     <string name="menu_launchactivities">Lanzar Aplicación</string>
     <string name="menu_actions">Establecer Acción</string>
+    <string name="menu_testaction">Probar Acción</string>
     <string name="title_activity_kernel_gestures_builder">Kernel Gestures Builder</string>
     <string name="title_activity_settings">Configuración</string>
     <string name="title_activity_launchactivities">Lanzar Aplicación</string>

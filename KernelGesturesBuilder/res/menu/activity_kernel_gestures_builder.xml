@@ -22,10 +22,14 @@
         android:titleCondensed="@string/menu_settings"/>
     <item android:id="@+id/menu_launchactivities"
         android:title="@string/menu_launchactivities"
-        android:orderInCategory="500"
+        android:orderInCategory="600"
         android:titleCondensed="@string/menu_launchactivities"/>
     <item android:id="@+id/menu_actions"
         android:title="@string/menu_actions"
-        android:orderInCategory="500"
+        android:orderInCategory="700"
         android:titleCondensed="@string/menu_actions"/>
+    <item android:id="@+id/menu_testaction"
+        android:title="@string/menu_testaction"
+        android:orderInCategory="800"
+        android:titleCondensed="@string/menu_testaction"/>
 </menu>

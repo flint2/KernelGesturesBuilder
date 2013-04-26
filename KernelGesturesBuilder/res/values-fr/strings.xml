@@ -2,11 +2,12 @@
     <string name="app_name">KernelGesturesBuilder</string>
     <string name="menu_installgestures">Installez gestes</string>
     <string name="menu_loadgestures">Charger gestes</string>
-    <string name="menu_resetgestures">Réinitialiser Gestes</string>
-    <string name="menu_resetactions">Réinitialiser Actions</string>
+    <string name="menu_resetgestures">Réinitialiser gestes</string>
+    <string name="menu_resetactions">Réinitialiser actions</string>
     <string name="menu_settings">Réglages</string>
-    <string name="menu_launchactivities">Lancement d´Application</string>
-    <string name="menu_actions">Définir Action</string>
+    <string name="menu_launchactivities">Lancement d´application</string>
+    <string name="menu_actions">Définir action</string>
+    <string name="menu_testaction">Essayer action</string>
     <string name="title_activity_kernel_gestures_builder">Kernel Gestures Builder</string>
     <string name="title_activity_settings">Réglages</string>
     <string name="title_activity_launchactivities">Lancement d´Application</string>
