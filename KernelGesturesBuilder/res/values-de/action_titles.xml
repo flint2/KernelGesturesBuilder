@@ -2,21 +2,21 @@
 <resources>
     <string-array  name="action_titles">
         <item>wechseln invertierten Bildschirm</item>
-        <item>Schalten Sie den Bildschirm</item>
         <item>starten Stweaks</item> 
         <item>Call to the intended phone</item> 
         <item>starten Kamera</item>
         <item>bluetooth einschalten/ausschalten</item>
         <item>WiFi einschalten/ausschalten</item>
-        <item>Media Play/Pause</item>
-        <item>Volume Mute/Unmute</item>
-        <item>Home</item>
-        <item>Schalten letzten 2 Aktivitäten</item>
-        <item>Volume Lauter</item>
-        <item>Volume Leiser</item>
-        <item>Media Stoppen</item>
+        <item>Schalten Sie den Bildschirm</item>
+        <item>Media play/pause</item>
+        <item>Volume mute/unmute</item>
+        <item>Volume lauter</item>
+        <item>Volume leiser</item>
+        <item>Media stoppen</item>
         <item>Media nächste</item>
         <item>Media früher</item>
+        <item>Home</item>
+        <item>Schalten letzten 2 Aktivitäten</item>
         <item>Aktuelle Anwendungen</item>
         <item>Stoppen Vordergrund Anwendung</item>
     </string-array>     

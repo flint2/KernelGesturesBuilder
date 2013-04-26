@@ -2,21 +2,21 @@
 <resources>
     <string-array  name="action_titles">
         <item>Écran inversé/normal</item>
-        <item>Éteignez l´écran</item>
-        <item>Démarrer Stweaks</item> 
+        <item>Démarrer application Stweaks</item> 
         <item>Appelez au téléphone destiné</item> 
-        <item>Démarrer caméra</item>
-        <item>Activer/Désactiver Bluetooth</item>
-        <item>Activer/Désactiver WiFi</item>
-        <item>Média Jouer/Pauser</item>
-        <item>Volume Muet/non Muet</item>
-        <item>Écran d´accueil</item>
-        <item>Échanger 2 dernières activités</item>
+        <item>Démarrer application caméra</item>
+        <item>Activer/désactiver bluetooth</item>
+        <item>Activer/désactiver WiFi</item>
+        <item>Éteignez l´écran</item>
+        <item>Média jouer/pauser</item>
+        <item>Volume muet/non muet</item>
         <item>Augmenter le volume</item>
         <item>Baisser le volume</item>
-        <item>Média Arrêt</item>
-        <item>Média Suivant</item>
+        <item>Média arrêt</item>
+        <item>Média suivant</item>
         <item>Média précédente</item>
+        <item>Écran d´accueil</item>
+        <item>Échanger 2 dernières activités</item>
         <item>Applications récentes</item>
         <item>Arrêtez application de premier plan</item>
     </string-array>     
