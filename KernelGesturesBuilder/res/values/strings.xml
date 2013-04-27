@@ -8,6 +8,7 @@
     <string name="menu_launchactivities">Launch Application</string>
     <string name="menu_actions">Set Action</string>
     <string name="menu_testaction">Test Action</string>
+    <string name="menu_selectgesture">Select Gesture</string>
     <string name="title_activity_kernel_gestures_builder">Kernel Gestures Builder</string>
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_launchactivities">Launch Application</string>
