@@ -68,6 +68,10 @@ public class KernelGesturesBuilder extends Activity {
 		return KernelGesturesMTView.getGesturenumber();
 	}
 	
+	public static void setGesturenumber(int gesture) {
+		KernelGesturesMTView.setGesturenumber(gesture);
+	}
+	
 	@Override
 	  public void onStart() {
 	    super.onStart();
