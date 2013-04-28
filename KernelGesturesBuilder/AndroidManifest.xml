@@ -47,6 +47,12 @@
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden">
         </activity>
+        <activity
+            android:name=".SelectGesture"
+            android:label="@string/title_activity_selectgesture" 
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden">
+        </activity>
         </application>
 
 </manifest>
