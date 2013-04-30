@@ -26,7 +26,7 @@ public class SelectGesture extends Activity  {
 	  public void onCreate(Bundle savedInstanceState) {
 		  
     	super.onCreate(savedInstanceState);
-	    setContentView(R.layout.actions);
+	    setContentView(R.layout.selectgesture);
 	    
 	    rowItems = new ArrayList<SelectGestureRowItem>();
         for (int i = 0; i < 30; i++) {
@@ -34,8 +34,8 @@ public class SelectGesture extends Activity  {
             rowItems.add(item);
         }
  
-        ListView actions_list = (ListView) findViewById(R.id.actions_list);
-        final SelectGestureAdapter adapter = new SelectGestureAdapter(this, R.layout.actionsrow , rowItems);
+        ListView actions_list = (ListView) findViewById(R.id.selectgesture_list);
+        final SelectGestureAdapter adapter = new SelectGestureAdapter(this, R.layout.selectgesturerow , rowItems);
         actions_list.setAdapter(adapter);
         actions_list.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> arg0, View v, int position,
