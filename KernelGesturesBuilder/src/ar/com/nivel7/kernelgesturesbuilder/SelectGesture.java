@@ -30,7 +30,7 @@ public class SelectGesture extends Activity  {
 	    
 	    rowItems = new ArrayList<SelectGestureRowItem>();
         for (int i = 0; i < 30; i++) {
-        	SelectGestureRowItem item = new SelectGestureRowItem("Gesture "+i, "");
+        	SelectGestureRowItem item = new SelectGestureRowItem("Gesture "+(i+1), "");
             rowItems.add(item);
         }
  
@@ -41,7 +41,7 @@ public class SelectGesture extends Activity  {
             public void onItemClick(AdapterView<?> arg0, View v, int position,
                     long id) {
             	
-        	    KernelGesturesBuilder.setGesturenumber(position);
+        	    KernelGesturesBuilder.setGesturenumber(position+1);
             	SelectGesture.this.finish();
             	    
             }
