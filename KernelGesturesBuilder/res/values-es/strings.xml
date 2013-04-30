@@ -8,10 +8,12 @@
     <string name="menu_launchactivities">Lanzar Aplicación</string>
     <string name="menu_actions">Establecer Acción</string>
     <string name="menu_testaction">Probar Acción</string>
+    <string name="menu_selectgesture">Seleccionar Gesto</string>
     <string name="title_activity_kernel_gestures_builder">Kernel Gestures Builder</string>
     <string name="title_activity_settings">Configuración</string>
     <string name="title_activity_launchactivities">Lanzar Aplicación</string>
     <string name="title_activity_actions">Establecer Acción</string>
+    <string name="title_activity_selectgesture">Seleccionar Gesto</string>
     <string name="title_loading_applications">Cargando Aplicaciones</string>
     <string name="message_please_wait">Por Favor Espere&#8230;</string>
     <string name="START_TEXT">Toque para Construir el Gesto</string>
