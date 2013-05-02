@@ -25,9 +25,6 @@
 	<string name="toastInstallGesturesOK">Gesten Installierte OK</string>
 	<string name="toastInstallGesturesERR">Fehler beim Installieren von Gesten: NO Root?</string>
 	<string name="icon_description">Anwendung Icon</string>
-	<string name="preferences_gestures">Gesten</string>
-	<string name="preferences_gesture_number">Geste Zahl</string>
-	<string name="preferences_definegesture">Definieren Geste Zahl (Id)</string>
 	<string name="preferences_gridlayout">Raster Anordnung</string>
 	<string name="preferences_gridcolumns">Raster Kolumne</string>
 	<string name="preferences_definenumbercols">Sets Raster Kolumne Zahl</string>
