@@ -30,7 +30,7 @@ public class SelectGesture extends Activity  {
 	    
 	    rowItems = new ArrayList<SelectGestureRowItem>();
         for (int i = 0; i < 30; i++) {
-        	SelectGestureRowItem item = new SelectGestureRowItem(R.string.preferences_gesture_number+ " "+i, "");
+        	SelectGestureRowItem item = new SelectGestureRowItem(getString(R.string.title_activity_selectgesture)+ " "+(i+1), "");
             rowItems.add(item);
         }
  
