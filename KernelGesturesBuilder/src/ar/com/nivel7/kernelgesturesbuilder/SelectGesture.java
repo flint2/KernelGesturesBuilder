@@ -5,6 +5,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,7 +52,13 @@ public class SelectGesture extends Activity  {
         
 	  }
       
-	  @Override
+  	@Override
+  	protected void onDestroy() {
+  		startActivity(new Intent(this, KernelGesturesBuilder.class ));
+  		super.onDestroy();
+  	}
+
+  	@Override
 	  public void onStart() {
 	    super.onStart();
 	    EasyTracker.getInstance().activityStart(this); 

@@ -25,9 +25,6 @@
 	<string name="toastInstallGesturesOK">Gestures Installed OK</string>
 	<string name="toastInstallGesturesERR">Error Installing Gestures: NO Root?</string>
 	<string name="icon_description">Application Icon</string>
-	<string name="preferences_gestures">Gestures</string>
-	<string name="preferences_gesture_number">Gesture number</string>
-	<string name="preferences_definegesture">Define gesture number (Id)</string>
 	<string name="preferences_gridlayout">Grid Layout</string>
 	<string name="preferences_gridcolumns">Grid columns</string>
 	<string name="preferences_definenumbercols">Define number of grid columns</string>

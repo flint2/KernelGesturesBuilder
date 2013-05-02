@@ -45,6 +45,7 @@ public class KernelGesturesBuilder extends Activity {
 	private static MTView KernelGesturesMTView;
 	private SharedPreferences sharedPrefs;
 	String datapath = null;
+	public static int gesture_number = 1;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -56,7 +57,7 @@ public class KernelGesturesBuilder extends Activity {
 		
 		sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 		KernelGesturesMTView = new MTView(this);
-		KernelGesturesMTView.setGesturenumber(Integer.parseInt(sharedPrefs.getString("gesture_number", "1")));
+		KernelGesturesMTView.setGesturenumber(gesture_number);
 		KernelGesturesMTView.setGridcolumns(Integer.parseInt(sharedPrefs.getString("grid_columns", "3")));
 		KernelGesturesMTView.setGridrows(Integer.parseInt(sharedPrefs.getString("grid_rows", "5")));
 		setContentView(KernelGesturesMTView);
@@ -65,11 +66,11 @@ public class KernelGesturesBuilder extends Activity {
 	}
 	
 	public static int getGesturenumber() {
-		return KernelGesturesMTView.getGesturenumber();
+		return gesture_number;
 	}
 	
 	public static void setGesturenumber(int gesture) {
-		KernelGesturesMTView.setGesturenumber(gesture);
+		gesture_number = gesture;
 	}
 	
 	@Override
@@ -86,7 +87,7 @@ public class KernelGesturesBuilder extends Activity {
 
 	@Override
 	public void onNewIntent(Intent intent) {
-		KernelGesturesMTView.setGesturenumber(Integer.parseInt(sharedPrefs.getString("gesture_number", "1")));
+		KernelGesturesMTView.setGesturenumber(gesture_number);
 		KernelGesturesMTView.setGridcolumns(Integer.parseInt(sharedPrefs.getString("grid_columns", "3")));
 		KernelGesturesMTView.setGridrows(Integer.parseInt(sharedPrefs.getString("grid_rows", "5")));
 		setContentView(KernelGesturesMTView);
@@ -526,7 +527,7 @@ public class KernelGesturesBuilder extends Activity {
   		
   		if (Utils.canRunRootCommandsInThread()) {
   			Utils.executeRootCommandInThread
-  			("chmod 777 "+scriptname+"\n"+scriptname);
+  			("chmod 777 "+scriptname+"\n"+scriptname +" & \n");
   		} else {
   			toastText = getString(R.string.toastLoadGesturesERR);
   			Toast.makeText(this , toastText, Toast.LENGTH_SHORT).show();
