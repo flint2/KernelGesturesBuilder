@@ -1,13 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ar.com.nivel7.kernelgesturesbuilder"
     android:installLocation="auto"
-    android:versionCode="141"
-    android:versionName="1.14.1" 
+    android:versionCode="150"
+    android:versionName="1.15" 
     >
     
     <uses-sdk
         android:minSdkVersion="11"
-        android:targetSdkVersion="17" />
+        android:targetSdkVersion="18" />
 	
 	<uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
 	<uses-permission android:name="android.permission.INTERNET" />
