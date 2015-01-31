@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string-array name="gridColumns">
+        <item name="2">2</item>
+        <item name="3">3</item>
+        <item name="4">4</item>
+        <item name="5">5</item>
+        <item name="6">6</item>
+        <item name="7">7</item>
+        <item name="8">8</item>
+      </string-array>
+    
+     <string-array name="gridColumnsValues">
+        <item name="2">2</item>
+        <item name="3">3</item>
+        <item name="4">4</item>
+        <item name="5">5</item>
+        <item name="6">6</item>
+        <item name="7">8</item>
+        <item name="8">8</item>
+    </string-array>
+    
+    <string-array name="gridRows">
+        <item name="2">2</item>
+        <item name="3">3</item>
+        <item name="4">4</item>
+        <item name="5">5</item>
+        <item name="6">6</item>
+        <item name="7">7</item>
+        <item name="8">8</item>
+        <item name="9">9</item>
+        <item name="10">10</item>
+    </string-array>
+
+    <string-array name="gridRowsValues">
+        <item name="2">2</item>
+        <item name="3">3</item>
+        <item name="4">4</item>
+        <item name="5">5</item>
+        <item name="6">6</item>
+        <item name="7">7</item>
+        <item name="8">8</item>
+        <item name="9">9</item>
+        <item name="10">10</item>
+    </string-array>
+     
+</resources>

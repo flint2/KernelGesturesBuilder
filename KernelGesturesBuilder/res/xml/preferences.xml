@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory 
+        android:title="@string/preferences_gridlayout"
+        android:key="grid_layout">
+    
+    <ListPreference 
+            android:key="grid_columns"
+            android:title="@string/preferences_gridcolumns"
+            android:summary="@string/preferences_definenumbercols"
+            android:defaultValue="3" 
+            android:entries="@array/gridColumns"
+            android:entryValues="@array/gridColumnsValues"
+     />    
+    
+    <ListPreference 
+            android:key="grid_rows"
+            android:title="@string/preferences_gridrows"
+            android:summary="@string/preferences_definenumberrows"
+            android:defaultValue="5" 
+            android:entries="@array/gridRows"
+            android:entryValues="@array/gridRowsValues"
+     />    
+    
+    </PreferenceCategory>
+
+</PreferenceScreen>

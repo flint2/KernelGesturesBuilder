@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array  name="action_titles">
+        <item>Pantalla invertida/normal</item>
+        <item>Abrir aplicación Stweaks</item> 
+        <item>Llamar al número de teléfono</item> 
+        <item>Abrir aplicación cámara</item>
+        <item>Bluetooth prendido/apagado</item>
+        <item>WiFi prendido/apagado</item>
+        <item>Apagar pantalla</item>
+        <item>Play/pausa medio</item>
+        <item>Silenciar/activar volumen</item>
+        <item>Subir volumen</item>
+        <item>Bajar volumen</item>
+        <item>Media stop</item>
+        <item>Media siguiente</item>
+        <item>Media previo</item>
+        <item>Inicio</item>
+        <item>Cambiar entre 2 actividades</item>
+        <item>Aplicaciones recientes</item>
+        <item>Cerrar aplicación en primer plano</item>
+    </string-array>     
+</resources>

@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">KernelGesturesBuilder</string>
+    <string name="menu_installgestures">Install Gestures</string>
+    <string name="menu_loadgestures">Load Gestures</string>
+    <string name="menu_resetgestures">Reset Gestures</string>
+    <string name="menu_resetactions">Reset Actions</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_launchactivities">Launch Application</string>
+    <string name="menu_actions">Set Action</string>
+    <string name="menu_testaction">Test Action</string>
+    <string name="menu_selectgesture">Select Gesture</string>
+    <string name="title_activity_kernel_gestures_builder">Kernel Gestures Builder</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_launchactivities">Launch Application</string>
+    <string name="title_activity_actions">Set Action</string>
+    <string name="title_activity_selectgesture">Select Gesture</string>
+    <string name="title_loading_applications">Loading Applications</string>
+    <string name="message_please_wait">Please Wait&#8230;</string>
+    <string name="START_TEXT">Touch Anywhere To Build Gesture</string>
+	<string name="toastGestureSavedOK">Gesture Saved to File</string>
+	<string name="toastResetActionsOK">Actions Reset OK</string>
+	<string name="toastResetGesturesOK">Gestures Reset OK</string>
+	<string name="toastLoadGesturesOK">Gestures Loaded OK</string>
+	<string name="toastLoadGesturesERR">Error Loading Gestures: NO Root?</string>
+	<string name="toastInstallGesturesOK">Gestures Installed OK</string>
+	<string name="toastInstallGesturesERR">Error Installing Gestures: NO Root?</string>
+	<string name="icon_description">Application Icon</string>
+	<string name="preferences_gridlayout">Grid Layout</string>
+	<string name="preferences_gridcolumns">Grid columns</string>
+	<string name="preferences_definenumbercols">Define number of grid columns</string>
+	<string name="preferences_gridrows">Grid rows</string>
+	<string name="preferences_definenumberrows">Define number of grid rows</string>
+</resources>

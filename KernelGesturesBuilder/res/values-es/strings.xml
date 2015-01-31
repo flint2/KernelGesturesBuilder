@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">KernelGesturesBuilder</string>
+    <string name="menu_installgestures">Instalar Gestos</string>
+    <string name="menu_loadgestures">Cargar Gestos</string>
+    <string name="menu_resetgestures">Resetear Gestos</string>
+    <string name="menu_resetactions">Resetear Acciones</string>
+    <string name="menu_settings">Configuración</string>
+    <string name="menu_launchactivities">Lanzar Aplicación</string>
+    <string name="menu_actions">Establecer Acción</string>
+    <string name="menu_testaction">Probar Acción</string>
+    <string name="menu_selectgesture">Seleccionar Gesto</string>
+    <string name="title_activity_kernel_gestures_builder">Kernel Gestures Builder</string>
+    <string name="title_activity_settings">Configuración</string>
+    <string name="title_activity_launchactivities">Lanzar Aplicación</string>
+    <string name="title_activity_actions">Establecer Acción</string>
+    <string name="title_activity_selectgesture">Seleccionar Gesto</string>
+    <string name="title_loading_applications">Cargando Aplicaciones</string>
+    <string name="message_please_wait">Por Favor Espere&#8230;</string>
+    <string name="START_TEXT">Toque para Construir el Gesto</string>
+	<string name="toastGestureSavedOK">Gesto Salvado al Archivo</string>
+	<string name="toastResetActionsOK">Acciones Reseteadas OK</string>
+	<string name="toastResetGesturesOK">Gestos Reseteados OK</string>
+	<string name="toastLoadGesturesOK">Gestos Cargados OK</string>
+	<string name="toastLoadGesturesERR">Error Cargando Gestos: NO Root?</string>
+	<string name="toastInstallGesturesOK">Gestos Instalados OK</string>
+	<string name="toastInstallGesturesERR">Error Instalando Gestos: NO Root?</string>
+	<string name="icon_description">Icono de Aplicación</string>
+	<string name="preferences_gridlayout">Disposición de Grilla</string>
+	<string name="preferences_gridcolumns">Columnas de Grilla</string>
+	<string name="preferences_definenumbercols">Define el número of columnas</string>
+	<string name="preferences_gridrows">Filas de Grilla</string>
+	<string name="preferences_definenumberrows">Define el número de columnas</string>
+</resources>
