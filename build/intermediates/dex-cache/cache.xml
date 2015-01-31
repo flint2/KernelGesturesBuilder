@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\gjoandet\AndroidstudioProjects\KernelGesturesBuilderGradle\app\libs\libGoogleAnalyticsV2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4d946a10c0d73adf8596ab3547fb78f00346673a">
+        <dex dex="C:\Users\gjoandet\AndroidstudioProjects\KernelGesturesBuilderGradle\app\build\intermediates\pre-dexed\debug\libGoogleAnalyticsV2-ecb34a364f86b383124a7e2a16e044286affd823.jar" />
+    </item>
+    <item
+        jar="C:\Users\gjoandet\android-sdks\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="C:\Users\gjoandet\AndroidstudioProjects\KernelGesturesBuilderGradle\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0-97065b54489cde8bbe5b730ef4adcf6a1a0f73c8.jar" />
+    </item>
+
+</items>
