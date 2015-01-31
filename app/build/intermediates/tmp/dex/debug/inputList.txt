@@ -1,3 +1,0 @@
-C:\Users\gjoandet\workspace\KernelGesturesBuilder\app\build\intermediates\classes\debug
-C:\Users\gjoandet\workspace\KernelGesturesBuilder\app\build\intermediates\pre-dexed\debug\libGoogleAnalyticsServices-ab16aa8a0f160aabb46d1fa9dd81fc137b8a6a63.jar
-C:\Users\gjoandet\workspace\KernelGesturesBuilder\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0-8a17b1f580def1a3b0674823d273e72b8658d6ae.jar
