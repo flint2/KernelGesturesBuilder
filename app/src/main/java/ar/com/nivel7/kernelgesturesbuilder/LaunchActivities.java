@@ -43,8 +43,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
-
 import com.google.analytics.tracking.android.EasyTracker;
+
 
 public class LaunchActivities extends Activity  {
   AppAdapter adapter=null;
@@ -127,13 +127,13 @@ public class LaunchActivities extends Activity  {
   @Override
   public void onStart() {
     super.onStart();
-    EasyTracker.getInstance().activityStart(this); 
+    EasyTracker.getInstance(this).activityStart(this);
   }
 
   @Override
   public void onStop() {
     super.onStop();
-    EasyTracker.getInstance().activityStop(this);
+    EasyTracker.getInstance(this).activityStop(this);
   }
   
 
