@@ -2,18 +2,18 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\gjoandet\workspace\KernelGesturesBuilder\app\libs\libGoogleAnalyticsServices.jar"
+        jar="C:\Users\gjoandet\AndroidstudioProjects\KernelGesturesBuilder\app\libs\libGoogleAnalyticsServices.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="db1e65d9e3ee616f871cb23120fbea8f18ad3e4c">
-        <dex dex="C:\Users\gjoandet\workspace\KernelGesturesBuilder\app\build\intermediates\pre-dexed\debug\libGoogleAnalyticsServices-ab16aa8a0f160aabb46d1fa9dd81fc137b8a6a63.jar" />
+        <dex dex="C:\Users\gjoandet\AndroidstudioProjects\KernelGesturesBuilder\app\build\intermediates\pre-dexed\debug\libGoogleAnalyticsServices_edaaba602f6216c1df7fafd1696cedbb6f6662ed.jar" />
     </item>
     <item
-        jar="C:\Users\gjoandet\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jar="C:\Users\gjoandet\android-sdks\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
-        <dex dex="C:\Users\gjoandet\workspace\KernelGesturesBuilder\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0-8a17b1f580def1a3b0674823d273e72b8658d6ae.jar" />
+        <dex dex="C:\Users\gjoandet\AndroidstudioProjects\KernelGesturesBuilder\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0_97065b54489cde8bbe5b730ef4adcf6a1a0f73c8.jar" />
     </item>
 
 </items>
